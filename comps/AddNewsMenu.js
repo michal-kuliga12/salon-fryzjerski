@@ -1,26 +1,13 @@
 import { useState } from "react";
 import styles from "../styles/comp-styles/AdminAddNewsMenu.module.scss"
 import adminStyles from "../styles/Admin.module.scss"
+import UseFetch from "../comps/UseFetch";
+
 const AddNewsMenu = () => {
     const [title,setTitle] = useState("")
     const [author,setAuthor] = useState("")
     const [date,setDate] = useState("")
     const [content,setContent] = useState("")
-    const addNewsFunction = async () => {
-        const res = await fetch('./api/news/add',{
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({ 
-                tytul: title,
-                autor: author,
-                data: date,
-                tresc: content
-            }),
-        })
-    }
     return (
     <div className={styles.container}>
         <h3>DODAJ ARTYKUŁ</h3>
@@ -48,7 +35,13 @@ const AddNewsMenu = () => {
             onChange={(e)=>setContent(e.target.value)}
             placeholder="Treść artykułu"></textarea>
         <div className={styles.submit_container}>
-            <button onClick={()=>{addNewsFunction(title,author,date,content)}} id={styles.submit_accept}>ZATWIERDŹ</button>
+            <button onClick={()=>{
+                UseFetch('./api/news/add',"POST",{
+                    tytul: title,
+                    autor: author,
+                    data: date,
+                    tresc: content})
+            }} id={styles.submit_accept}>ZATWIERDŹ</button>
         </div>
     </div>
     );

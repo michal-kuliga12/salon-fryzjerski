@@ -4,6 +4,7 @@ import ServiceItem from "../comps/ServiceItem";
 import styles from "../styles/BookingSite.module.scss"
 import addVisit from "../models/bookingModel";
 import connectMongo from "../lib/connectMongo";
+import UseFetch from "../comps/UseFetch";
 
 
 const serviceList = [
@@ -44,41 +45,24 @@ const Rezerwacja = ({ booking }) => {
     // // Deklaracja zmiennych w zależności od stanów
     const [service, setService] = useState(null)
     const [klient, setClient] = useState("")
-    const [data, setDate] = useState("")
+    const [date, setDate] = useState("")
     const [error, setError] = useState(false)
     const [booked, setBooked] = useState(false)
 
     // Funkcja wykonywana po naciśnięciu przycisku rezerwacji
     const handleSubmit = async (e) => {
-        let bookingData = service
-        bookingData.klient = klient
-        bookingData.data = data
-        const usluga = bookingData.nazwa
-        const metoda = bookingData.metoda
-        const cena = bookingData.koszt
-        console.log(bookingData)
-
-        if (service && klient && data) {
+        const body = {
+            klient: klient,
+            data: date,
+            usluga: service.nazwa,
+            metoda: service.metoda,
+            cena: service.koszt,
+        }
+        if (service && klient && date) {
             e.preventDefault();
-            const res = await fetch('./api/booking/add',{
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                    klient: klient,
-                    data: data,
-                    usluga: usluga,
-                    metoda: metoda,
-                    cena: cena,
-                }),
-            })
-            .then((res)=>{
-                console.log(res)
-                setBooked(true)
-                setError(false)
-            })
+            UseFetch("./api/booking/add","POST",body)
+            setBooked(true)
+            setError(false)
         } else {
             alert("Należy uzupełnić wszystkie pola!")
             setBooked(false)
@@ -117,7 +101,7 @@ const Rezerwacja = ({ booking }) => {
                 <input
                     type="text"
                     required
-                    value={data}
+                    value={date}
                     onChange={(e)=>setDate(e.target.value)}
                     placeholder="Wpisz datę"></input>
                 <button onClick={handleSubmit}>ZAREZERWUJ</button>
