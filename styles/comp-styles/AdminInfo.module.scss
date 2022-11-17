@@ -1,0 +1,38 @@
+.info__section {
+    display: flex;
+    flex-direction: column;
+}
+.info__section h3 {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 6px;
+}
+.info__itemContainer {
+    padding: 10px 10px;
+    row-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.info__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+}
+.info__item p {
+    margin-bottom: 10px;
+}
+.info__item div {
+    text-align: center;
+    font-size: 18px;
+    line-height: 60px;
+    height: 60px;
+    width: 200px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 9px 1px rgba(140, 140, 140, 1);
+    border-radius: 16px;
+}
+.info__item div {
+    background-color: rgba(157, 219, 157, 0.801);
+}    

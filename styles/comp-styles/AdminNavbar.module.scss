@@ -1,0 +1,43 @@
+
+.user_image {
+    border: 1px solid rgb(161, 161, 161);
+    height: 64px;
+    width: 64px;
+    padding: 6px;
+    border-radius: 60px;
+}
+.home_image {
+    position: fixed;
+    right: 20px;
+}
+.container {
+    background-color: rgb(252, 252, 252);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0px 9px 15px -12px rgba(66, 68, 90, 1);
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid rgb(202, 202, 202);
+}
+@media (min-width: 768px) {
+    .container {
+        position: fixed;
+        flex-direction: column;
+        right: 0;
+        width: 200px;
+        height: 100%;
+    }
+    .user_image {
+        position: relative;
+        height: 128px;
+        width: 128px;
+    }
+    .home_image {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+
+}

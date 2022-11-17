@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:ital,wght@0,200;0,300;1,200&display=swap');
+$primary-color: rgb(240, 240, 240);
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: $primary-color;
+}
+h1, h2 {
+  font-family: 'Courgette', cursive;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+a > li {
+  line-height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
