@@ -26,7 +26,9 @@ const News = ({news}) => {
                     <div className={styles.news__items}>
                         {news.map((item,index)=>{
                             return (
-                                <NewsItem item={item} index={index} />
+                                <div key={index} className={styles.news__item} >
+                                     <NewsItem item={item} index={index} />
+                                </div>  
                             );
                     })}
                     </div>

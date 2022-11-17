@@ -14,7 +14,7 @@ import AddNewsMenu from "../comps/AddNewsMenu";
 
 import { useState } from "react";
 
-const panelAdmina = ({ booking, news}) => {
+const PanelAdmina = ({ booking, news}) => {
     console.log(news)
     const [isActive,setIsActive] = useState(false)
 
@@ -52,7 +52,9 @@ const panelAdmina = ({ booking, news}) => {
                     <div className={bookingStyles.booking__list}>
                         {booking.map((item,index)=>{
                             return (
-                                <BookingItem item={item} index={index} />
+                                <div key={index} className={styles.booking__item}>
+                                    <BookingItem item={item} index={index} />
+                                </div>  
                             );
                         })}
                     </div>
@@ -69,7 +71,9 @@ const panelAdmina = ({ booking, news}) => {
                     <div className={newsStyles.news__list}>
                         {news.map((item,index)=>{
                             return (
-                                <NewsItem item={item} index={index} />
+                                <div key={index} className={styles.news__item} >
+                                    <NewsItem item={item} index={index} />
+                                </div>
                             );
                         })}
                     </div>
@@ -83,7 +87,7 @@ const panelAdmina = ({ booking, news}) => {
     );
 }
  
-export default panelAdmina;
+export default PanelAdmina;
 
 export const getServerSideProps = async () => {
     try {

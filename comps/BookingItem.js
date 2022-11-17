@@ -16,7 +16,7 @@ const BookingItem = ({item,index}) => {
         })
     }
     return (
-    <div key={index} className={styles.booking__item}>
+    <>
         <div className={styles.booking__itemUp}>
             <div>
                 <p><b>{index+1}. {item.klient}</b></p>
@@ -38,7 +38,7 @@ const BookingItem = ({item,index}) => {
             <p>{item.usluga}</p>
             <p>{item.metoda}</p>
         </div>
-    </div>
+    </>
     );
 }
  
