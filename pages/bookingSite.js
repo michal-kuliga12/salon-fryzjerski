@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ServiceItem from "../comps/ServiceItem";
-import styles from "../styles/bookingSite.module.scss"
+import styles from "../styles/BookingSite.module.scss"
 import addVisit from "../models/bookingModel";
 import connectMongo from "../lib/connectMongo";
 

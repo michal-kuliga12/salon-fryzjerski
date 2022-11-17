@@ -1,4 +1,4 @@
-import style from "../styles/bookingSite.module.scss"
+import style from "../styles/BookingSite.module.scss"
 const ServiceItem = ({nazwa,koszt,metoda}) => {
     return (
         <>
