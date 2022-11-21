@@ -2,6 +2,7 @@ import Link from "next/link";
 import NavbarItem from "./NavbarItem";
 import {useState} from "react";
 import styles from "../styles/comp-styles/Navbar.module.scss"
+import Image from "next/image"
 
 const NavItems = [
     {
@@ -51,6 +52,11 @@ const Navbar = () => {
                     <span className={styles.nav_btnSpan}></span>
                     <span className={styles.nav_btnSpan}></span>
                 </div>
+{/* ------------- */}
+                <Link href="/admin" id={styles.lock}>
+                    <Image src="/lock.png" alt="flaticon.com" width={24} height={24} />
+                </Link>
+                
             </div>
         </nav>
     );

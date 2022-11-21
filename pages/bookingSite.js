@@ -60,7 +60,7 @@ const Rezerwacja = ({ booking }) => {
         }
         if (service && klient && date) {
             e.preventDefault();
-            UseFetch("./api/booking/add","POST",body)
+            UseFetch("./api/routes/booking","POST",body)
             setBooked(true)
             setError(false)
         } else {

@@ -4,8 +4,8 @@ import styles from "../styles/comp-styles/AdminBooking.module.scss"
 const BookingItem = ({item,index}) => {
     const deleteItem = async (item) => {
         console.log(item._id)
-        const res = await fetch('./api/booking/delete',{
-            method: "POST",
+        const res = await fetch('./api/routes/booking',{
+            method: "DELETE",
             headers: { 
                 "Content-Type": "application/json",
                 "Accept": "application/json"

@@ -118,6 +118,11 @@ $nav-height: 64px;
 
 }
 @media (min-width:768px) {
+    #lock {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
     .nav_container {
         height: 80px;
         border-bottom: 4px solid $accent-color;

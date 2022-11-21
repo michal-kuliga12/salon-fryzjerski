@@ -36,7 +36,7 @@ const AddNewsMenu = () => {
             placeholder="Treść artykułu"></textarea>
         <div className={styles.submit_container}>
             <button onClick={()=>{
-                UseFetch('./api/news/add',"POST",{
+                UseFetch('./api/routes/news',"POST",{
                     tytul: title,
                     autor: author,
                     data: date,
