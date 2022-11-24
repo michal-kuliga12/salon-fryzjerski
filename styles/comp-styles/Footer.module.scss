@@ -1,0 +1,48 @@
+@use "../variables" as v;
+.container {
+    width: 100%;
+    background-color: v.$footer-background;
+    border-top: 2px solid v.$footer-border;
+    padding: 20px 26px;
+    position: bottom;
+
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+    align-items: baseline;
+}
+.container > div:nth-of-type(1),
+.container > div:nth-of-type(2) {
+    border-bottom: 1px solid v.$footer-item-border;
+}
+.infoBlock {
+    display: flex;
+    width: 100%;
+    gap: 70px;
+}
+.infoImage {
+    margin-bottom: 20px;
+}
+.infoText p:first-child {
+    margin-bottom: 6px;
+}
+
+@media (min-width: 728px) {
+    .container {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
+    }
+    .container > div:nth-of-type(1),
+    .container > div:nth-of-type(2) {
+        border-bottom: none;
+    }
+    .infoBlock {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    
+    } 
+}

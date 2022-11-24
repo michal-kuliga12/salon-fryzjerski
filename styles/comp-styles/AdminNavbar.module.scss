@@ -1,6 +1,6 @@
-
+@use "../variables" as v;
 .user_image {
-    border: 1px solid rgb(161, 161, 161);
+    border: 1px solid v.$image-border;
     height: 64px;
     width: 64px;
     padding: 6px;
@@ -11,15 +11,15 @@
     right: 20px;
 }
 .container {
-    background-color: rgb(252, 252, 252);
+    background-color: v.$container-background;
     margin: 0;
     display: flex;
     align-items: center;
     gap: 40px;
-    box-shadow: 0px 9px 15px -12px rgba(66, 68, 90, 1);
+    box-shadow: 0px 9px 15px -12px v.$container-shadow;
     width: 100%;
     padding: 10px 20px;
-    border: 1px solid rgb(202, 202, 202);
+    border: 1px solid v.$container-border;
 }
 @media (min-width: 768px) {
     .container {

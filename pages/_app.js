@@ -1,4 +1,4 @@
-import Layout from '../comps/Layout'
+import Layout from '../comps/layout/Layout'
 import '../styles/globals.scss'
 import { useRouter } from 'next/router'
 

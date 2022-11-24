@@ -1,7 +1,7 @@
 import Link from "next/link";
 import NavbarItem from "./NavbarItem";
 import {useState} from "react";
-import styles from "../styles/comp-styles/Navbar.module.scss"
+import styles from "../../styles/comp-styles/Navbar.module.scss"
 import Image from "next/image"
 
 const NavItems = [
@@ -21,6 +21,10 @@ const NavItems = [
         text: "Galeria",
         href: "/gallery"
     },
+    {
+        text: "Sklep",
+        href: "/shop"
+    }
 ]
 const Navbar = () => {
     const [buttonActive, setButtonActive] = useState(0);
@@ -41,6 +45,10 @@ const Navbar = () => {
                             </li>
                         );
                     })}
+                    <div className={styles.nav_userImage}>
+                        <Link href="/login">
+                        <Image src="/navbarUser.png" width={32} height={32} alt="flaticon"/></Link>    
+                    </div>
                 </ul>
 {/* ------------Poniżej mamy przycisk do otwierania menu tzw hamburger */}
                 <div 
@@ -53,7 +61,7 @@ const Navbar = () => {
                     <span className={styles.nav_btnSpan}></span>
                 </div>
 {/* ------------- */}
-                <Link href="/admin" id={styles.lock}>
+                <Link href="/admin" id={buttonActive?styles.lock_active: styles.lock}>
                     <Image src="/lock.png" alt="flaticon.com" width={24} height={24} />
                 </Link>
                 

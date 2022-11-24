@@ -1,12 +1,23 @@
 import { useState } from "react"
-import UseFetch from "../comps/UseFetch"
+import fetchJson, {FetchError} from "../lib/fetchJson"
+import useUser from "../lib/useUser";
+import styles from "../styles/Login.module.scss"
+import Image from "next/image"
+import Link from "next/link"
 const Login = () => {
+    const { mutateUser } = useUser({
+        redirectTo: "/admin",
+        redirectIfFound: true,
+    });
     const [username,setUsername] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     return (
-        <div>
-            <h1>LOGOWANIE DO PANELU ADMINA</h1>
+        <div className={styles.body}>
+            <Link className={styles.back_button} href="/">
+                <Image src="/login-back.png" width={32} height={32} alt="flaticon"/>
+            </Link>
+            <h1>LOGOWANIE</h1>
             <input
                 type="text"
                 required
@@ -20,12 +31,30 @@ const Login = () => {
                 onChange={(e)=>setEmail(e.target.value)}
                 placeholder="Email"></input>
             <input
-                type="password"
+                type="text"
                 required
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 placeholder="Hasło"></input>
-            <button onSubmit={()=>{UseFetch("./api/routes/auth","PUT",{username,email,password})}}>ZATWIERDŹ</button>
+            <button onClick={async (event)=>{
+                event.preventDefault
+                const body = {username,email,password}
+                try {
+                    mutateUser(
+                      await fetchJson("/api/routes/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(body)
+                      }),false
+                    );
+                  } catch (error) {
+                    console.log(error)
+                  }
+
+            }}>
+                ZATWIERDŹ
+            </button>
+            
         </div>
     );
 }

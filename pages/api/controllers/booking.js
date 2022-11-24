@@ -1,5 +1,5 @@
 import connectMongo from '../../../lib/connectMongo';
-import addVisit from '../../../models/bookingModel';
+import bookingModel from '../../../models/booking';
 /**
  * 
  * @param {import('next').NextApiRequest} req 
@@ -13,7 +13,7 @@ export const bookAdd = async (req,res) => {
         await connectMongo()
         console.log('CONNECTED TO DATABASE')
         console.log('CREATING DOCUMENT')
-        let book = await addVisit.create(req.body)
+        let book = await bookingModel.create(req.body)
         console.log('CREATED DOCUMENT')
         res.json({ book })
 
@@ -31,9 +31,8 @@ export const bookDelete = async (req,res) => {
         await connectMongo()
         console.log('CONNECTED TO DATABASE')
         console.log('DELETING DOCUMENT')
-        await addVisit.deleteOne(id)
+        await bookingModel.deleteOne(id)
         console.log('DELETED DOCUMENT')
-        window.location.reload(false);
     } catch(error) {
         console.log(error)
         res.json(error)
@@ -45,7 +44,7 @@ export const bookEdit = async (req,res) => {
         const id = req.body._id;
         console.log(id)
         await connectMongo()
-        let editedBooking = await addVisit.updateOne({_id: id}, {$set: req.body})
+        let editedBooking = await bookingModel.updateOne({_id: id}, {$set: req.body})
         console.log('EDITED DOCUMENT')
         res.json({ editedBooking })
     } catch(error) {

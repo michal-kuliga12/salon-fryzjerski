@@ -1,6 +1,5 @@
-import connect from "mongodb";
 import connectMongo from "../../../lib/connectMongo";
-import userModel from "../../../models/userModel";
+import userModel from "../../../models/user";
 /**
  * @param {import('next').NextApiRequest} req 
  * @param {import('next').NextApiResponse} res 
@@ -23,11 +22,9 @@ export const userCheck = async (req,res) => {
             username: req.body.username, 
             email: req.body.email, 
             password: req.body.password})
-        if(!foundUser) res.status("Nie znaleziono użytkownika")
-        else res.status(200).send('Znaleziono użytkownika')
+        if (foundUser) return foundUser;
     } catch (error) {
-        console.log(error)
-        res.status(404).send('Użytkownik nie istnieje')
+        res.status(500).end()
     }
 }
 export const userGet = async (req,res) => {

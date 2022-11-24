@@ -1,23 +1,18 @@
 // $primary-color: rgb(100, 100, 100);
 // $accent-color: rgb(167, 124, 7);
 // $hover-color: rgb(177, 134, 17);
-$primary-color: rgb(60, 60, 60);
-$accent-color: rgb(167, 124, 7);
-$hover-color: rgb(177, 134, 17);
-$font-color: rgb(209, 209, 209);
-$border-color: rgb(99, 99, 99);
-$hamburger-main-color: white;
+@use "../variables" as v;
 $nav-height: 64px;
 .nav {
-    color: $font-color;
+    color: v.$font-color;
     position: sticky;
     top: 0;
     z-index: 20;
 }
 .nav_container {
-    background-color: $primary-color;
-    border-bottom: solid 4px $accent-color;
-    padding: 10px 40px;
+    background-color: v.$primary-color;
+    border-bottom: solid 4px v.$accent-color;
+    padding: 10px 10px 10px 30px;
 
     height: $nav-height;
 
@@ -26,24 +21,18 @@ $nav-height: 64px;
     justify-content: space-between;
     align-items: center;
 }
-.nav_underline {
-    display: block;
-    background: linear-gradient(45deg,rgb(190, 146, 1),rgb(163, 139, 4));
-    width: 100%;
-    height: 2px;
-}
 .nav_list_active,
 .nav_list {
     transition: 0.5s;
     min-width: 260px;
     height: 100%;
-    background-color: $primary-color;
+    background-color: v.$primary-color;
     margin: 0;
     padding: 0;
     position: fixed;
     top: 0;
     right: 0;
-    border-left: 6px solid $accent-color;
+    border-left: 6px solid v.$accent-color;
 
 
     display: flex;
@@ -58,7 +47,7 @@ $nav-height: 64px;
 .nav_listEl {
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid v.$border-color;
 
 }
 .nav_list_active li,
@@ -94,11 +83,11 @@ $nav-height: 64px;
 }
 .nav_btn span,
 .nav_btn_active span {
-    background-color: $hamburger-main-color;
+    background-color: v.$hamburger-main-color;
     transition: 0.3s;
 }
 .nav_btn :nth-child(2) {
-    background-color: $accent-color;
+    background-color: v.$accent-color;
 }
 .nav_btn_active :nth-child(1) {
     transform: rotate(45deg) translate(9px,8px);
@@ -125,7 +114,7 @@ $nav-height: 64px;
     }
     .nav_container {
         height: 80px;
-        border-bottom: 4px solid $accent-color;
+        border-bottom: 4px solid v.$accent-color;
     }
     .nav_btn {
         display: none;
@@ -143,7 +132,7 @@ $nav-height: 64px;
 
     }
     .nav_listEl:hover {
-        color: $hover-color;
+        color: v.$hover-color;
         transition: 0.5s;
     }
     .nav_listEl:first-child {
@@ -151,11 +140,29 @@ $nav-height: 64px;
     }
     .nav_listEl:nth-child(2) {
         color: rgb(255, 255, 255);
-        background-color: $accent-color;
+        background-color: v.$accent-color;
         border-radius: 16px;
     }
     .nav_listEl:nth-child(2):hover {
-        background-color: $hover-color;
+        background-color: v.$hover-color;
     }
+    .nav_userImage {
+        width: 48px;
+        height: 48px;
+        margin-left: 20px;
 
+
+        background-color: rgb(241, 241, 241);
+        border-radius: 50%;
+        border: 1px solid black;
+        transition: 0.5s;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav_userImage:hover {
+        transition: 0.5s;
+        background-color: v.$user-hover;
+    }
 }

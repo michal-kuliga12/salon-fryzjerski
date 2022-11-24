@@ -1,5 +1,5 @@
 import connectMongo from "../../../lib/connectMongo";
-import newsModel from "../../../models/newsModel";
+import newsModel from "../../../models/news";
 /**
  * @param {import('next').NextApiRequest} req 
  * @param {import('next').NextApiResponse} res 
@@ -10,7 +10,7 @@ export const newsAdd = async (req,res) => {
     try {
         const {tytul,autor,data,tresc} = req.body
         await connectMongo()
-        news = await newsModel.create(req.body)
+        const news = await newsModel.create(req.body)
     }
     catch(error) {
         console.log(error)
@@ -21,7 +21,7 @@ export const newsDelete = async (req,res) => {
     try {
         const { id } = req.body
         await connectMongo()
-        news = await newsModel.deleteOne( id )
+        const news = await newsModel.deleteOne( id )
         window.location.reload(false);
     }
     catch(error) {

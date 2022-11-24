@@ -22,5 +22,5 @@ const bookingSchema = new Schema({
         required: true,
     }
 });
-const addVisit = models.appointment || model('appointment',bookingSchema)
-export default addVisit
+const bookingModel = models.appointment || model('appointment',bookingSchema)
+export default bookingModel

@@ -3,21 +3,24 @@ import bookingStyles from "../styles/comp-styles/AdminBooking.module.scss"
 import newsStyles from "../styles/comp-styles/AdminNews.module.scss"
 import infoStyles from "../styles/comp-styles/AdminInfo.module.scss"
 
-import addVisit from "../models/bookingModel";
+import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
 import Image from "next/image";
 import AdminNavbar from "../comps/AdminNavbar";
 import BookingItem from "../comps/BookingItem";
-import newsModel from "../models/newsModel";
+import newsModel from "../models/news";
 import NewsItem from "../comps/AdminNewsItem";
 import AddNewsMenu from "../comps/AddNewsMenu";
 
 import { useState } from "react";
+import useUser from "../lib/useUser";
 
 const PanelAdmina = ({ booking, news}) => {
-    console.log(news)
     const [isActive,setIsActive] = useState(false)
-
+    const { user } = useUser({ redirectTo: "/login"})
+    if (!user || user.isLoggedIn === false) {
+        return (<div>Loading...</div>)
+    }
     return (
         <div className={styles.body}>
             <AdminNavbar/>
@@ -95,7 +98,7 @@ export const getServerSideProps = async () => {
         await connectMongo()
         console.log('CONNECTED TO DATABASE')
         console.log('FETCHING DOCUMENT')
-        const booking = await addVisit.find()
+        const booking = await bookingModel.find()
         const news = await newsModel.find()
         console.log('FETCHED DOCUMENT')
         return {

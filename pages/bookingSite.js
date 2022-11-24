@@ -2,9 +2,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import ServiceItem from "../comps/ServiceItem";
 import styles from "../styles/BookingSite.module.scss"
-import addVisit from "../models/bookingModel";
+import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
-import UseFetch from "../comps/UseFetch";
+import UseFetch from "../lib/useFetch";
 
 
 const serviceList = [
@@ -134,7 +134,7 @@ export const getServerSideProps = async () => {
         await connectMongo()
         console.log('CONNECTED TO DATABASE')
         console.log('FETCHING DOCUMENT')
-        const booking = await addVisit.find()
+        const booking = await bookingModel.find()
         console.log('FETCHED DOCUMENT')
         return {
             props: {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/comp-styles/AdminAddNewsMenu.module.scss"
 import adminStyles from "../styles/Admin.module.scss"
-import UseFetch from "../comps/UseFetch";
+import UseFetch from "../lib/useFetch";
 
 const AddNewsMenu = () => {
     const [title,setTitle] = useState("")
