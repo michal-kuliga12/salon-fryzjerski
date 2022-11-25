@@ -1,9 +1,9 @@
-import styles from '../styles/News.module.scss'
-import connectMongo from '../lib/connectMongo';
-import newsModel from '../models/news';
-import NewsItem from '../comps/NewsItem';
+import styles from '../../styles/News.module.scss'
+import connectMongo from '../../lib/connectMongo';
+import newsModel from '../../models/news';
+import NewsItem from '../../comps/items/NewsItem';
 import Image from 'next/image';
-import DotPattern from "../comps/stylingProps/DotPattern"
+import DotPattern from "../../comps/stylingProps/DotPattern"
 
 const News = ({news}) => {
     return (

@@ -1,17 +1,17 @@
 import connectMongo from '../../../lib/connectMongo';
-import bookingModel from '../../../models/booking';
+import productModel from '../../../models/product';
 /**
  * 
  * @param {import('next').NextApiRequest} req 
  * @param {import('next').NextApiResponse} res 
  */
 //DODAWANIE RESERWACJI
-export const bookAdd = async (req,res) => {
+export const productAdd = async (req,res) => {
     try {
-        const { klient, data, usluga, metoda, cena } = req.body;
+        const { name, type, price, description, isAvailable} = req.body;
         await connectMongo()
-        let book = await bookingModel.create(req.body)
-        res.json({ book })
+        let product = await productModel.create(req.body)
+        res.json({ product })
 
     } catch(error) {
         console.log(error)
@@ -19,23 +19,23 @@ export const bookAdd = async (req,res) => {
     }
 }
 //USUWANIE REZERWACJI
-export const bookDelete = async (req,res) => {
+export const productDelete = async (req,res) => {
     try {
         const { id } = req.body;
         await connectMongo()
-        await bookingModel.deleteOne(id)
+        await productModel.deleteOne(id)
     } catch(error) {
         console.log(error)
         res.json(error)
     }
 }
 //EDYCJA REZERWACJI
-export const bookEdit = async (req,res) => {
+export const productEdit = async (req,res) => {
     try {
         const id = req.body._id;
         await connectMongo()
-        let editedBooking = await bookingModel.updateOne({_id: id}, {$set: req.body})
-        res.json({ editedBooking })
+        let editedProduct = await productModel.updateOne({_id: id}, {$set: req.body})
+        res.json({ editedProduct })
     } catch(error) {
         console.log(error)
         res.json(error)

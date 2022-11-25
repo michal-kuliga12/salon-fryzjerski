@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/comp-styles/AdminBooking.module.scss"
+import styles from "../../styles/comp-styles/AdminBooking.module.scss"
 
 const BookingItem = ({item,index}) => {
     const deleteItem = async (item) => {

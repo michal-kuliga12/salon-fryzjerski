@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/comp-styles/AdminNews.module.scss"
+import styles from "../../styles/comp-styles/AdminNews.module.scss"
 
 const NewsItem = ({item,index}) => {
     return (

@@ -7,9 +7,9 @@ import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
 import Image from "next/image";
 import AdminNavbar from "../comps/AdminNavbar";
-import BookingItem from "../comps/BookingItem";
+import BookingItem from "../comps/items/BookingItem";
 import newsModel from "../models/news";
-import NewsItem from "../comps/AdminNewsItem";
+import NewsItem from "../comps/items/AdminNewsItem";
 import AddNewsMenu from "../comps/AddNewsMenu";
 
 import { useState } from "react";
