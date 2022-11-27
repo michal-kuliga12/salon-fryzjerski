@@ -4,10 +4,14 @@ import newsModel from '../../models/news';
 import NewsItem from '../../comps/items/NewsItem';
 import Image from 'next/image';
 import DotPattern from "../../comps/stylingProps/DotPattern"
+import Head from 'next/head';
 
 const News = ({news}) => {
     return (
         <div className={styles.container}>
+        <Head>
+            <title>Labella | Aktualności</title>
+        </Head>
             <section className={styles.image__section}>
                 <div className={styles.image__container}>
                     {/* <Image 

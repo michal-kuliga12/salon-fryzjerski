@@ -4,6 +4,7 @@ import useUser from "../lib/useUser";
 import styles from "../styles/Login.module.scss"
 import Image from "next/image"
 import Link from "next/link"
+import Head from "next/head";
 const Login = () => {
     const { mutateUser } = useUser({
         redirectTo: "/admin",
@@ -13,7 +14,10 @@ const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     return (
-        <div className={styles.body}>
+        <div className={styles.body}> 
+        <Head>
+            <title>Labella | Logowanie</title>
+        </Head>
             <Link className={styles.back_button} href="/">
                 <Image src="/login-back.png" width={32} height={32} alt="flaticon"/>
             </Link>

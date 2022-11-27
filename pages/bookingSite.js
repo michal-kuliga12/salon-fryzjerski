@@ -5,6 +5,7 @@ import styles from "../styles/BookingSite.module.scss"
 import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
 import UseFetch from "../lib/useFetch";
+import Head from "next/head";
 
 
 const serviceList = [
@@ -71,6 +72,9 @@ const Rezerwacja = ({ booking }) => {
     }
     return (
         <div className={styles.container}>
+        <Head>
+            <title>Labella | Rezerwacja</title>
+        </Head>
             <h1>Rezerwacja</h1>
             <section className={styles.detailsSection}>
                 <div className={styles.detailsHeader}>

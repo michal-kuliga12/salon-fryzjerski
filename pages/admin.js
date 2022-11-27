@@ -11,6 +11,7 @@ import BookingItem from "../comps/items/BookingItem";
 import newsModel from "../models/news";
 import NewsItem from "../comps/items/AdminNewsItem";
 import AddNewsMenu from "../comps/AddNewsMenu";
+import Head from "next/head";
 
 import { useState } from "react";
 import useUser from "../lib/useUser";
@@ -23,6 +24,9 @@ const PanelAdmina = ({ booking, news}) => {
     }
     return (
         <div className={styles.body}>
+        <Head>
+            <title>Labella | Panel admina</title>
+        </Head>
             <AdminNavbar/>
             <div className={styles.container}>
                 <section className={infoStyles.info__section}>

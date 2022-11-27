@@ -1,6 +1,7 @@
+import Image from "next/image";
 import connectMongo from "../../lib/connectMongo";
 import newsModel from "../../models/news";
-
+import styles from "../../styles/News.module.scss"
 // export const getServerSideProps = async (context) => {
 //     const { id } = context.query
 //     await connectMongo()
@@ -34,10 +35,15 @@ export const getStaticProps = async (context) => {
 }
 
 const NewsDetails = ({ news }) => {
-    console.log(news)
     return (
-        <div>
-            <h1>{news.tytul}</h1>
+        <div className={styles.newsDetails__container}>
+            <picture className={styles.newsDetails__imageContainer}>
+                <Image className={styles.newsDetails__image} src="/aktualnosci1.jpg" width={600} height={400} objectFit="contain" layout="responsive" />
+            </picture>
+            <article>
+                <h2>{news.tytul}</h2>
+                <p>{news.tresc}</p>
+            </article>
         </div>
     );
 }

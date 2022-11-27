@@ -5,12 +5,16 @@ import productModel from "../../models/product";
 import styles from "../../styles/Shop.module.scss"
 import ProductItem from "../../comps/items/ProductItem";
 import { useState } from "react";
+import Head from "next/head";
 
 const Shop = ({ product }) => {
     const [customerType,setCustomerType] = useState(0)
     const [sortType,setSortType] = useState(0)
     return (
         <div className={styles.body}>
+        <Head>
+            <title>Labella | Sklep</title>
+        </Head>
             <div className={styles.customer__container}>
                 <h2>TYP ZAKUPÓW</h2>
                 <div className={styles.customer__choosing}>

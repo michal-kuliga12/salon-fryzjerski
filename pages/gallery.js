@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/Gallery.module.scss"
@@ -30,6 +31,9 @@ const Galeria = () => {
     }
     return (
         <div className={styles.container}>
+        <Head>
+            <title>Labella | Galeria</title>
+        </Head>
             <div><h1>Galeria</h1></div>
             <div className={styles.gallery_container}>
                 {zdjecia.map((url,id)=>{

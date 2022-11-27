@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Strona główna</title>
+        <title>Labella | Strona główna</title>
       </Head>
       <div className={styles.backgroundParent}>
         <Image
