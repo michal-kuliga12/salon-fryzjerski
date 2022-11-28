@@ -108,7 +108,7 @@ const Rezerwacja = ({ booking }) => {
                     value={date}
                     onChange={(e)=>setDate(e.target.value)}
                     placeholder="Wpisz datę"></input>
-                <button onClick={handleSubmit}>ZAREZERWUJ</button>
+                <button onClick={()=>{handleSubmit}}>ZAREZERWUJ</button>
                 {error && <p style={{fontSize:"24px",color:"red"}}>Wystąpił błąd podczas rezerwacji!</p>}
                 {booked && <p style={{fontSize:"24px",color:"black"}}>Pomyślnie zarezerwowano wizytę!</p>}
                 {booking && 

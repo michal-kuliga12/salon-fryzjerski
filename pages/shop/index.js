@@ -40,6 +40,7 @@ const Shop = ({ product }) => {
                         onClick={()=>setSortType(2)}>PIELĘGNACJA</p></div>
             </div>
             <div className={styles.product__container}>
+                {console.log(product)}
                 {product.map((item,index)=>{
                     return (
                         <div key={index} className={styles.product__item}>

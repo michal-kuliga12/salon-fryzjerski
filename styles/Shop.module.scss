@@ -85,9 +85,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-@media (min-width: 480px) {
-    .sort__container {
-        flex-direction: row;
-    }
-}
