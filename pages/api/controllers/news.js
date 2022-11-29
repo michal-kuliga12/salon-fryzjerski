@@ -19,10 +19,9 @@ export const newsAdd = async (req,res) => {
 //USUWANIE AKTUALNOŚCI
 export const newsDelete = async (req,res) => {
     try {
-        const { id } = req.body
+        const { id } = req.body;
         await connectMongo()
-        const news = await newsModel.deleteOne( id )
-        window.location.reload(false);
+        await newsModel.deleteOne(id)
     }
     catch(error) {
         console.log(error)

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import connectMongo from "../../lib/connectMongo";
+import UseFetch from "../../lib/useFetch";
 import productModel from "../../models/product";
 import styles from "../../styles/id_Shop.module.scss"
 
@@ -37,51 +38,32 @@ export const getStaticProps = async (context) => {
 }
 
 const ProductDetails = ({ product }) => {
-    const handleSubmit = async (e) => {
-        const body = {
-            klient: klient,
-            data: date,
-            usluga: service.nazwa,
-            metoda: service.metoda,
-            cena: service.koszt,
-        }
-        if (service && klient && date) {
-            e.preventDefault();
-            UseFetch("./api/routes/booking","POST",body)
-            setBooked(true)
-            setError(false)
-        } else {
-            alert("Należy uzupełnić wszystkie pola!")
-            setBooked(false)
-            setError(true)
-        }
-    }
     const [productAmount, setProductAmount] = useState(0)
-    const [address, setAddress] = useState("")
+    const [street, setStreet] = useState("")
     const [postalCode, setPostalCode] = useState("")
     const [city, setCity] = useState("")
-    const [buyer, setBuyer] = useState("")
+    const [customer, setCustomer] = useState("")
     return (
         <div className={styles.container}>
             <div className={styles.order_info_container}>
                 <picture>
-                    <Image src="/stylizacja1.jpg" width={500} height={500} layout="responsive"/>
+                    <Image className={styles.order_image} src={product.imageUrl} width={500} height={500} objectFit="contain" alt={"https://allefryz.pl"}/>
                 </picture>
-                <div>
-                    <h4>{product.name}</h4>
-                    <p>{product.type}</p>
-                </div>
                 <div className={styles.order_options_container}>
+                    <div className={styles.order_options_title}>
+                        <h4>{product.name}</h4>
+                        <p>{product.type}</p>
+                    </div>
                     <div>
-                        <div className={styles.order_options_block}>
+                        <div className={styles.order_options_address}>
                             <input
                                 type="text"
                                 required
-                                value={address}
-                                onChange={(e)=>setAddress(e.target.value)}
+                                value={street}
+                                onChange={(e)=>setStreet(e.target.value)}
                                 placeholder="Adres odbiorcy"></input>
                         </div>
-                        <div className={styles.order_options_block}>
+                        <div className={styles.order_options_postal_city}>
                             <input
                                 type="text"
                                 required
@@ -95,15 +77,16 @@ const ProductDetails = ({ product }) => {
                                 onChange={(e)=>setCity(e.target.value)}
                                 placeholder="Miasto"></input>
                         </div>
-                        <div className={styles.order_options_block}>
+                        <div className={styles.order_options_buyer}>
                             <input
                                 type="text"
                                 required
-                                value={buyer}
-                                onChange={(e)=>setBuyer(e.target.value)}
-                                placeholder="Dane odbiorcy"></input>
+                                value={customer}
+                                onChange={(e)=>setCustomer(e.target.value)}
+                                placeholder="Imię i nazwisko, nazwa firmy"></input>
                         </div>
-                        <div className={styles.order_options_block}>
+                        <div style={{textAlign:"center"}}><p>Ilość sztuk:</p></div>
+                        <div className={styles.order_options_quantity}>
                             <button onClick={()=>{
                                 if (productAmount <= 0) setProductAmount(0)
                                 else setProductAmount(productAmount-1)
@@ -119,13 +102,28 @@ const ProductDetails = ({ product }) => {
                                 else setProductAmount(productAmount+1)
                             }}>+</button>
                         </div>
-                        <div className={styles.order_options_block}>
-                            <button onSubmit={()=>{handleSubmit}}>Dalej</button>
-                        </div>
+                        <div className={styles.order_options_button_container}>
+                            <button className={styles.order_options_button} onClick={()=>{
+                                const order_date = new Date
+                                let realization_date = new Date
+                                realization_date.setDate(realization_date.getDate()+3)
+                                const address = `${street} ${postalCode} ${city}`
+                                const body = {
+                                    name:product.name,
+                                    customer,
+                                    address,
+                                    price:product.price,
+                                    quantity:productAmount,
+                                    order_date,
+                                    realization_date}
+                                UseFetch("/api/routes/order","POST",body)
+                            }}>
+                                ZAMÓW</button></div>
                     </div>
                 </div>
             </div>
             <div className={styles.order_description_container}>
+                <p style={{marginBottom:"6px"}}><b>Opis produktu:</b></p>
                 {product.description}
             </div>
         </div>

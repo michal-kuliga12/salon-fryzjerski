@@ -1,25 +1,49 @@
 .container {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    min-height: 76vh;
+    background-color: white;
+    box-shadow: 0px 0px 15px -6px rgba(66, 68, 90, 1);
+}
+.order_options_title {
+    margin-bottom: 4px;
 }
 .order_info_container {
-    box-shadow: 0px 0px 15px -6px rgba(66, 68, 90, 1);
-    background-color: white;
     padding: 10px;
+    max-width: 1000px;
+
+    gap: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .order_info_container picture {
+    position: relative;
+    width: 300px;
+    height: 300px;
     border: 1px solid lightgray;
     padding: 6px;
     border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+}
+.order_image {
+    height: 100%;
+    width: auto;
 }
 .order_options_container {
+    max-width: 500px;
+    background-color:rgba(245, 223, 164, 0.788);
+    border-radius: 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
 .order_options_container input {
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
     color: black;
     height: 34px;
     padding: 2px 6px;
@@ -27,8 +51,62 @@
     margin: 4px;
     outline: none;
     border: 1px solid rgb(104, 103, 103);
-    border-radius: 2px;
+    border-radius: 10px;
 }
-.order_options_container input:nth-of-type(1) {
-    width: 240px;
+.order_options_container button {
+    cursor: pointer;  
+}
+.order_options_container input {
+    width: 100%;
+}
+.order_options_postal_city {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.order_options_quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.order_options_quantity > input,
+.order_options_quantity > button {
+    width: 30px;
+    height: 30px;
+}
+.order_options_quantity > input {
+    width: 50px;
+}
+.order_options_button_container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.order_options_button {
+    width: 160px;
+    height: 40px;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 2px 1px rgb(77, 77, 77);
+    border-radius: 20px;
+    background-color: rgb(116, 81, 0);
+    color: white;
+    font-size: 16px;
+}
+.order_options_button:hover {
+    background-color: rgb(146, 119, 0);
+    transition: 0.2s; 
+}
+.order_description_container {
+    margin-top: 10px;
+    max-width: 800px;
+}
+@media (min-width: 768px){
+    .order_info_container {
+        flex-direction: row;
+    }
 }

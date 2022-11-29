@@ -6,7 +6,7 @@ const NewsItem = ({item,index}) => {
     return (
         <>
             <Link href={`/news/${item._id}`}>
-                <Image src={`/aktualnosci${index+1}.jpg`} width={600} height={400}/>
+                <Image src={item.imageUrl} width={600} height={400}/>
                 <div className={styles.news__itemInfo}>
                     <p>{item.tytul}</p>
                     <p>{item.autor}</p>

@@ -4,9 +4,10 @@ import adminStyles from "../styles/Admin.module.scss"
 import UseFetch from "../lib/useFetch";
 
 const AddNewsMenu = () => {
+    const [imageUrl,setImageUrl] = useState("")
     const [title,setTitle] = useState("")
     const [author,setAuthor] = useState("")
-    const [date,setDate] = useState("")
+    const date = new Date()
     const [content,setContent] = useState("")
     return (
     <div className={styles.container}>
@@ -26,9 +27,9 @@ const AddNewsMenu = () => {
         <input
             type="text"
             required
-            value={date}
-            onChange={(e)=>setDate(e.target.value)}
-            placeholder="Aktualna data"></input>
+            value={imageUrl}
+            onChange={(e)=>setImageUrl(e.target.value)}
+            placeholder="Adres zdjęcia, '/aktualnosci1.jpg'"></input>
         <textarea
             required
             value={content}
@@ -40,7 +41,8 @@ const AddNewsMenu = () => {
                     tytul: title,
                     autor: author,
                     data: date,
-                    tresc: content})
+                    tresc: content,
+                    imageUrl: imageUrl})
             }} id={styles.submit_accept}>ZATWIERDŹ</button>
         </div>
     </div>

@@ -61,9 +61,9 @@ const Navbar = () => {
                     <span className={styles.nav_btnSpan}></span>
                 </div>
 {/* ------------- */}
-                <Link href="/admin" id={buttonActive?styles.lock_active: styles.lock}>
+                {/* <Link href="/admin" id={buttonActive?styles.lock_active: styles.lock}>
                     <Image src="/lock.png" alt="flaticon.com" width={24} height={24} />
-                </Link>
+                </Link> */}
                 
             </div>
         </nav>

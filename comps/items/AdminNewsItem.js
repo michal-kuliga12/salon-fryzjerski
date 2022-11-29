@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "../../styles/comp-styles/AdminNews.module.scss"
 
 const NewsItem = ({item,index}) => {
+    const data = new Date(item.data)
     return (
         <div key={index} className={styles.news__item} >
             <div className={styles.news__itemLeft}>
@@ -9,7 +10,7 @@ const NewsItem = ({item,index}) => {
                 <p>{item.autor}</p>
             </div>
             <p className={styles.news__itemRight}>
-                {item.data}
+                {data.getDate()}/{data.getMonth()}/{data.getFullYear()}
             </p>
         </div>
     );

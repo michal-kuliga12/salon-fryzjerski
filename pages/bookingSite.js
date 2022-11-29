@@ -6,6 +6,7 @@ import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
 import UseFetch from "../lib/useFetch";
 import Head from "next/head";
+import Calendar,{chosenDate, chosenHour} from "../comps/Calendar";
 
 
 const serviceList = [
@@ -42,25 +43,28 @@ const serviceList = [
     
 ]
 
-const Rezerwacja = ({ booking }) => {
+const Rezerwacja = ({ booking },chosenDate,chosenHour) => {
     // // Deklaracja zmiennych w zależności od stanów
     const [service, setService] = useState(null)
-    const [klient, setClient] = useState("")
+    const [client, setClient] = useState("")
     const [date, setDate] = useState("")
     const [error, setError] = useState(false)
     const [booked, setBooked] = useState(false)
 
     // Funkcja wykonywana po naciśnięciu przycisku rezerwacji
     const handleSubmit = async (e) => {
+        console.log(date)
+        console.log(service)
+        console.log(client)
         const body = {
-            klient: klient,
+            klient: client,
             data: date,
             usluga: service.nazwa,
             metoda: service.metoda,
             cena: service.koszt,
         }
-        if (service && klient && date) {
-            e.preventDefault();
+        console.log(body)
+        if (service && client && date) {
             UseFetch("./api/routes/booking","POST",body)
             setBooked(true)
             setError(false)
@@ -69,6 +73,10 @@ const Rezerwacja = ({ booking }) => {
             setBooked(false)
             setError(true)
         }
+    }
+    const getDateFromCalendar = (dateFromCalendar) => {
+        setDate(dateFromCalendar)
+        console.log("Pomyślnie przesłano datę z kalendarza: "+ dateFromCalendar)
     }
     return (
         <div className={styles.container}>
@@ -96,36 +104,16 @@ const Rezerwacja = ({ booking }) => {
             </section>
             <section className={styles.dateSection}>
                 <h2>Wybierz termin oraz wykonawce usługi</h2>
+                <Calendar getDateFromCalendar={getDateFromCalendar} />
                 <input
                     type="text"
                     required
-                    value={klient}
+                    value={client}
                     onChange={(e)=>setClient(e.target.value)}
                     placeholder="Wpisz swoje imię"></input>
-                <input
-                    type="text"
-                    required
-                    value={date}
-                    onChange={(e)=>setDate(e.target.value)}
-                    placeholder="Wpisz datę"></input>
-                <button onClick={()=>{handleSubmit}}>ZAREZERWUJ</button>
+                <button onClick={()=>{handleSubmit()}}>ZAREZERWUJ</button>
                 {error && <p style={{fontSize:"24px",color:"red"}}>Wystąpił błąd podczas rezerwacji!</p>}
                 {booked && <p style={{fontSize:"24px",color:"black"}}>Pomyślnie zarezerwowano wizytę!</p>}
-                {booking && 
-                <div style={{display:"flex",flexWrap:"wrap"}}>
-                {booking.map((item,index)=>{
-                    return (
-                        <div key={index} style={{display: "flex", flexDirection: "column", margin: "10px"}}>
-                            <p>Klucz: {index}</p>
-                            <p>Imię: {item.klient}</p>
-                            <p>Data: {item.data}</p>
-                            <p>Usługa: {item.usluga}</p>
-                            <p>Metoda: {item.metoda}</p>
-                            <p>Cena: {item.cena}</p>
-                        </div>
-                    );
-                })}    
-                </div>}
             </section>
         </div>
     );

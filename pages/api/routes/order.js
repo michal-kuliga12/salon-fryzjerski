@@ -5,7 +5,7 @@
 
  import { orderAdd, orderDelete, orderEdit } from '../controllers/order';
 
- export default function bookingRoutes(req,res){
+ export default function orderRoutes(req,res){
      const method = req.method
      switch (method) {
          case "POST":

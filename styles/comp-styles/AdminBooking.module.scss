@@ -46,10 +46,15 @@
     display: flex;
     justify-content: space-between;
 }
+.booking__itemUp > div:nth-of-type(2) {
+    width: 100px;
+}
 .booking__itemUp > div:nth-of-type(3) {
     width: 64px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    padding: 6px;
     gap: 10px;
 }
 .booking__itemUp span {

@@ -6,8 +6,8 @@ const ProductItem = ({item,index}) => {
     return (
         <>
             <Link href={`/shop/${item._id}`} >
-                <div className={styles.product__image}>
-                    <Image src={"/stylizacja1.jpg"} alt={"https://balmainhair.com.pl/"} width={256} height={256}/>
+                <div className={styles.product__image_container}>
+                    <Image className={styles.product__image} src={item.imageUrl} alt={"https://allefryz.pl"} layout="fill" objectFit="contain"  />
                 </div>
                 <div className={styles.product__info}>
                     <div>{item.name}</div>

@@ -38,7 +38,7 @@ const NewsDetails = ({ news }) => {
     return (
         <div className={styles.newsDetails__container}>
             <picture className={styles.newsDetails__imageContainer}>
-                <Image className={styles.newsDetails__image} src="/aktualnosci1.jpg" width={600} height={400} objectFit="contain" layout="responsive" />
+                <Image className={styles.newsDetails__image} src={news.imageUrl} width={600} height={400} objectFit="contain" layout="responsive" />
             </picture>
             <article>
                 <h2>{news.tytul}</h2>

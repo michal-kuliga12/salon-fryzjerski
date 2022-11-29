@@ -10,12 +10,16 @@ const newsSchema = new Schema ({
         required: true
     },
     data: {
-        type: String,
+        type: Date,
         required: true,
     },
     tresc: {
         type: String,
         required: true
+    },
+    imageUrl: {
+        type: String,
+        required: true,
     }
 });
 const newsModel = models.new || model('new',newsSchema)

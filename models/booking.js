@@ -6,8 +6,9 @@ const bookingSchema = new Schema({
         required: true,
     },
     data: {
-        type: String,
+        type: Date,
         required: true,
+        unique: true,
     },
     usluga: {
         type: String,

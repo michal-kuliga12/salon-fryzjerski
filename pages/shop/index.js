@@ -15,7 +15,8 @@ const Shop = ({ product }) => {
         <Head>
             <title>Labella | Sklep</title>
         </Head>
-            <div className={styles.customer__container}>
+        <h1 style={{textAlign: "center", marginBottom: "10px"}}>SKLEP</h1>
+            {/* <div className={styles.customer__container}>
                 <h2>TYP ZAKUPÓW</h2>
                 <div className={styles.customer__choosing}>
                     <Link className={!customerType?styles.customer__type__active:styles.customer__type} 
@@ -27,8 +28,8 @@ const Shop = ({ product }) => {
                         onClick={()=>setCustomerType(1)}
                     >HURTOWY</Link>
                 </div>
-            </div>
-            <div className={styles.sort__container}>
+            </div> */}
+            {/* <div className={styles.sort__container}>
                 <div className={styles.sort__item}>
                     <p className={sortType==0?styles.customer__type__active:styles.customer__type}
                         onClick={()=>setSortType(0)}>AKCESORIA</p></div>
@@ -38,9 +39,8 @@ const Shop = ({ product }) => {
                 <div className={styles.sort__item}>
                     <p className={sortType==2?styles.customer__type__active:styles.customer__type}
                         onClick={()=>setSortType(2)}>PIELĘGNACJA</p></div>
-            </div>
+            </div> */}
             <div className={styles.product__container}>
-                {console.log(product)}
                 {product.map((item,index)=>{
                     return (
                         <div key={index} className={styles.product__item}>

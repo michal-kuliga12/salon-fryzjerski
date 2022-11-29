@@ -2,6 +2,7 @@ import styles from "../styles/Admin.module.scss"
 import bookingStyles from "../styles/comp-styles/AdminBooking.module.scss"
 import newsStyles from "../styles/comp-styles/AdminNews.module.scss"
 import infoStyles from "../styles/comp-styles/AdminInfo.module.scss"
+import orderStyles from "../styles/comp-styles/AdminOrders.module.scss"
 
 import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
@@ -15,8 +16,14 @@ import Head from "next/head";
 
 import { useState } from "react";
 import useUser from "../lib/useUser";
+import orderModel from "../models/order"
+import OrderItem from "../comps/items/OrderItem"
 
-const PanelAdmina = ({ booking, news}) => {
+const PanelAdmina = ({ booking, news, order}) => {
+    const sortedOrder = order.sort((a,b)=>new Date(a.order_date) - new Date(b.order_date))
+    const sortedBooking = booking.sort((a,b)=>new Date(a.data) - new Date(b.data)) 
+    const sortedNews = news.sort((a,b)=>new Date(a.order_date) - new Date(b.order_date)) 
+    
     const [isActive,setIsActive] = useState(false)
     const { user } = useUser({ redirectTo: "/login"})
     if (!user || user.isLoggedIn === false) {
@@ -52,19 +59,25 @@ const PanelAdmina = ({ booking, news}) => {
                 </section>
                 <section className={bookingStyles.booking__section}>
                     <h3>UMÓWIONE WIZYTY</h3>
-                    <div className={bookingStyles.booking__info}>
-                        <p>Klient</p>
-                        <p>Termin</p>
-                    </div>
                     <div className={bookingStyles.booking__list}>
-                        {booking.map((item,index)=>{
+                        {sortedBooking.map((item,index)=>{
                             return (
-                                <div key={index} className={styles.booking__item}>
+                                <div key={index} className={bookingStyles.booking__item}>
                                     <BookingItem item={item} index={index} />
                                 </div>  
                             );
                         })}
                     </div>
+                </section>
+                <section className={orderStyles.order__section}>
+                    <h3>ZAMÓWIENIA</h3>
+                    {sortedOrder.map((item,index)=>{
+                        return (
+                            <div key={index} className={orderStyles.order__item}>
+                                <OrderItem item={item} index={index} />
+                            </div>
+                        )
+                    })}
                 </section>
                 <section className={newsStyles.news__section}>
                     <div className={newsStyles.news__title}>
@@ -102,11 +115,13 @@ export const getServerSideProps = async () => {
         await connectMongo()
         console.log('CONNECTED TO DATABASE')
         console.log('FETCHING DOCUMENT')
+        const order = await orderModel.find()
         const booking = await bookingModel.find()
         const news = await newsModel.find()
         console.log('FETCHED DOCUMENT')
         return {
             props: {
+                order: JSON.parse(JSON.stringify(order)),
                 booking: JSON.parse(JSON.stringify(booking)),
                 news: JSON.parse(JSON.stringify(news)),
             },
