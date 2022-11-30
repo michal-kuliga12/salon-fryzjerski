@@ -10,7 +10,7 @@ const NewsItem = ({item,index}) => {
                 <p>{item.autor}</p>
             </div>
             <p className={styles.news__itemRight}>
-                {data.getDate()}/{data.getMonth()}/{data.getFullYear()}
+                {data.getDate()}/{data.getMonth()+1}/{data.getFullYear()}
             </p>
         </div>
     );

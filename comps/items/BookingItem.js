@@ -22,7 +22,7 @@ const BookingItem = ({item,index}) => {
                 <p>{index+1}. {item.klient}</p>
             </div>
             <div>
-                <p>{data.getDate()}/{data.getMonth()}/{data.getFullYear()}</p>
+                <p>{data.getDate()}/{data.getMonth()+1}/{data.getFullYear()}</p>
                 <p>{data.getHours()}:00</p>
             </div>
             <div>

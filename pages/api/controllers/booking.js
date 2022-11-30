@@ -41,3 +41,15 @@ export const bookEdit = async (req,res) => {
         res.json(error)
     }
 }
+export const bookFindOne = async (req,res) => {
+    try {
+        const data = req.body.data
+        await connectMongo()
+        let foundBooking = await bookingModel.findOne({data: data})
+        return foundBooking
+
+    } catch(error) {
+        console.log(error)
+        res.json(error)
+    }
+}

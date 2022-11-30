@@ -19,7 +19,9 @@ const Calendar = ({getDateFromCalendar}) => {
         chosenDate.setHours(chosenHour)
         chosenDate.setMinutes(0)
         chosenDate.setSeconds(0)
+        chosenDate.setMilliseconds(0)
         getDateFromCalendar(chosenDate)
+        console.log("Wybrano date")
     },[chosenHour]);
 
     const handleDayChange = (increment) => {
@@ -27,8 +29,9 @@ const Calendar = ({getDateFromCalendar}) => {
         tempDate.setDate(chosenDate.getDate() + increment);
         setChosenDate(tempDate)
         setDay(chosenDate.getDate())
-        setMonth(chosenDate.getMonth())
+        setMonth(chosenDate.getMonth()+1)
         setDayOfWeek(chosenDate.getDay())
+        console.log(tempDate)
     }
     return (
         <div className={calendarStyles.container}>

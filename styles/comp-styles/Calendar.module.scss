@@ -33,32 +33,37 @@
 }
 .selectHour_container {
     padding: 10px;
-    width: 310px;
-    height: auto;
-    background-color: rgb(63, 63, 63);
-    color: white;
-    border: 1px solid lightgray;
+    width: 80vw;
+    min-width: 330px;
+    height: 180px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
+    border: 1px solid rgb(153, 153, 153);
+    border-top: 10px solid rgb(95, 67, 63);
     border-radius: 6px;
-
+    
     display: grid;
-    grid-template-columns: repeat(5, 50px);
-    grid-template-rows: 50px 50px;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: 70px 70px;
     text-align: center
 }
 .selectHour_item,
 .selectHour_item_active {
-    line-height: 50px;
+    line-height: 70px;
+    border: 1px solid rgb(226, 226, 226);
 }
 .selectHour_item:hover,
 .selectHour_item_active:hover {
     cursor: pointer;
 }
 .selectHour_item_active {
-    border-radius: 16px;
     transition: 0.2s;
-    background-color: gold;
-    color: black;
-    box-shadow: 0px 0px 6px 0px rgb(231, 153, 8);
+    background-color: rgb(255, 233, 107);
+    box-shadow: inset 0px 0px 24px -2px rgb(243, 234, 111);
+    
+}
+@media (min-width: 768px) {
+    .selectHour_container {
+        width: 500px;
+    }
 }

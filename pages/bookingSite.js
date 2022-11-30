@@ -11,45 +11,61 @@ import Calendar,{chosenDate, chosenHour} from "../comps/Calendar";
 
 const serviceList = [
     {
-        nazwa: "Strzyżenie męskie",
+        nazwa: "Strzyżenie chłopięce (do 9 lat)",
         koszt: "35zł",
+        metoda: "Maszynka + nożyczki",
+    },
+    {
+        nazwa: "Strzyżenie dziewczynka (do 9 lat)",
+        koszt: "40zł",
+        metoda: "Nożyczki" ,
+    },
+    {
+        nazwa: "Strzyżenie damskie (końcówki)",
+        koszt: "39zł",
+        metoda: "Maszynka",
+    },
+    {
+        nazwa: "Strzyżenie damskie (mycie,modelowanie)",
+        koszt: "65zł",
+        metoda: "Maszynka + nożyczki",
+    },
+    {
+        nazwa: "Stylizacja ślubna",
+        koszt: "220zł",
+        metoda: "Maszynka + nożyczki" ,
+    },
+    {
+        nazwa: "Strzyżenie męskie",
+        koszt: "28zł",
         metoda: "Maszynka",
     },
     {
         nazwa: "Strzyżenie męskie",
-        koszt: "45zł",
-        metoda: "Maszynka + nożyczki" ,
+        koszt: "42zł",
+        metoda: "Maszynka + nożyczki",
     },
     {
-        nazwa: "Strzyżenie damskie",
-        koszt: "55zł",
-        metoda: "Nożyczki",
+        nazwa: "Strzyżenie męskie 'student'",
+        koszt: "36zł",
+        metoda: "Maszynka + nożyczki",
     },
     {
-        nazwa: "Strzyżenie męskie",
-        koszt: "35zł",
-        metoda: "Maszynka",
-    },
-    {
-        nazwa: "Strzyżenie męskie",
-        koszt: "45zł",
-        metoda: "Maszynka + nożyczki" ,
-    },
-    {
-        nazwa: "Strzyżenie damskie",
-        koszt: "55zł",
-        metoda: "Nożyczki",
+        nazwa: "Strzyżenie męskie modern/fade",
+        koszt: "50zł",
+        metoda: "Maszynka + nożyczki",
     }
     
 ]
 
-const Rezerwacja = ({ booking },chosenDate,chosenHour) => {
+const Rezerwacja = ({ booking }) => {
     // // Deklaracja zmiennych w zależności od stanów
     const [service, setService] = useState(null)
     const [client, setClient] = useState("")
     const [date, setDate] = useState("")
     const [error, setError] = useState(false)
     const [booked, setBooked] = useState(false)
+    const [dateError, setDateError] = useState(false)
 
     // Funkcja wykonywana po naciśnięciu przycisku rezerwacji
     const handleSubmit = async (e) => {
@@ -68,12 +84,23 @@ const Rezerwacja = ({ booking },chosenDate,chosenHour) => {
             UseFetch("./api/routes/booking","POST",body)
             setBooked(true)
             setError(false)
+            // const isDateFound = UseFetch("./api/controllers/bookFind","PUT",body)
+            // }    
+            //     if (isDateFound) {
+
+            //         console.log("Found date")
+            //     } else {
+            //         setDateError(1)
+            //         console.log(isDateFound)
+            //         console.log("data error")
+            //     }
         } else {
             alert("Należy uzupełnić wszystkie pola!")
             setBooked(false)
             setError(true)
         }
     }
+    const [chosenService,setChosenService] = useState(null)
     const getDateFromCalendar = (dateFromCalendar) => {
         setDate(dateFromCalendar)
         console.log("Pomyślnie przesłano datę z kalendarza: "+ dateFromCalendar)
@@ -89,10 +116,12 @@ const Rezerwacja = ({ booking },chosenDate,chosenHour) => {
                     <Image src="/scissors.png" width={32} height={32}/>
                     <h2>Wybierz rodzaj i szczegóły wizyty</h2>
                 </div>
+                <div className={styles.background}> {/*Zdjęcie: https://salongabriellubon.pl/ */}
                 <div className={styles.detailsContent}>
                     {serviceList.map((item,index)=>{
                         return (
-                            <div key={index} className={styles.serviceItem_container} onClick={()=>{
+                            <div key={index} className={chosenService===index?styles.serviceItem_container_active:styles.serviceItem_container} onClick={()=>{
+                                setChosenService(index)
                                 setService(item)
                                 console.log(item)
                             }}>
@@ -101,9 +130,14 @@ const Rezerwacja = ({ booking },chosenDate,chosenHour) => {
                         );
                     })}
                 </div>
+                </div>
+
             </section>
             <section className={styles.dateSection}>
-                <h2>Wybierz termin oraz wykonawce usługi</h2>
+            <div className={styles.detailsHeader}>
+                    <Image src="/calendar.png" width={32} height={32}/>
+                    <h2>Termin wizyty</h2>
+                </div>
                 <Calendar getDateFromCalendar={getDateFromCalendar} />
                 <input
                     type="text"
@@ -122,12 +156,8 @@ export default Rezerwacja;
 
 export const getServerSideProps = async () => {
     try {
-        console.log('CONNECTING TO DATABASE')
         await connectMongo()
-        console.log('CONNECTED TO DATABASE')
-        console.log('FETCHING DOCUMENT')
         const booking = await bookingModel.find()
-        console.log('FETCHED DOCUMENT')
         return {
             props: {
                 booking: JSON.parse(JSON.stringify(booking)),

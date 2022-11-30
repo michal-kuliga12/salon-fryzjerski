@@ -16,7 +16,7 @@ const OrderItem = ( {item, index}) => {
     }
     let orderDate = new Date(item.order_date)
     let realizationDate = new Date(item.realization_date)
-    orderDate = `${orderDate.getDate()}/${orderDate.getMonth()}/${orderDate.getFullYear()}`
+    orderDate = `${orderDate.getDate()}/${orderDate.getMonth()+1}/${orderDate.getFullYear()}`
     realizationDate = `${realizationDate.getDate()}/${realizationDate.getMonth()}/${realizationDate.getFullYear()}`
     return (
         <>

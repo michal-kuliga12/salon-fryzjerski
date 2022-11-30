@@ -3,7 +3,7 @@
  * @param {import('next').NextApiResponse} res 
  */
 
-import { bookAdd, bookDelete, bookEdit } from '../controllers/booking';
+import { bookAdd, bookDelete, bookEdit, bookFindOne } from '../controllers/booking';
 
 export default function bookingRoutes(req,res){
     const method = req.method
