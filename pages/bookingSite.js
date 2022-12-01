@@ -65,13 +65,10 @@ const Rezerwacja = ({ booking }) => {
     const [date, setDate] = useState("")
     const [error, setError] = useState(false)
     const [booked, setBooked] = useState(false)
-    const [dateError, setDateError] = useState(false)
+    const [dateNotAvailable, setDateNotAvailable] = useState(false)
 
     // Funkcja wykonywana po naciśnięciu przycisku rezerwacji
     const handleSubmit = async (e) => {
-        console.log(date)
-        console.log(service)
-        console.log(client)
         const body = {
             klient: client,
             data: date,
@@ -79,25 +76,26 @@ const Rezerwacja = ({ booking }) => {
             metoda: service.metoda,
             cena: service.koszt,
         }
+        // const newDate =  new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDay(),date.getHours(),date.getMinutes(),date.getSeconds(),date.getMilliseconds()))
+        // console.log("newDate: " + newDate)
         console.log(body)
         if (service && client && date) {
-            UseFetch("./api/routes/booking","POST",body)
-            setBooked(true)
-            setError(false)
-            // const isDateFound = UseFetch("./api/controllers/bookFind","PUT",body)
-            // }    
-            //     if (isDateFound) {
-
-            //         console.log("Found date")
-            //     } else {
-            //         setDateError(1)
-            //         console.log(isDateFound)
-            //         console.log("data error")
-            //     }
+            const isDateFound = await UseFetch("./api/controllers/bookFind","PUT",body)   
+                if (isDateFound) { 
+                    setBooked(false)
+                    setError(false)
+                    setDateNotAvailable(true)
+                } else {
+                    UseFetch("./api/routes/booking","POST",body)
+                    setBooked(true)
+                    setError(false)
+                    setDateNotAvailable(false)
+                }
         } else {
             alert("Należy uzupełnić wszystkie pola!")
             setBooked(false)
             setError(true)
+            setDateNotAvailable(false)
         }
     }
     const [chosenService,setChosenService] = useState(null)
@@ -148,6 +146,7 @@ const Rezerwacja = ({ booking }) => {
                 <button onClick={()=>{handleSubmit()}}>ZAREZERWUJ</button>
                 {error && <p style={{fontSize:"24px",color:"red"}}>Wystąpił błąd podczas rezerwacji!</p>}
                 {booked && <p style={{fontSize:"24px",color:"black"}}>Pomyślnie zarezerwowano wizytę!</p>}
+                {dateNotAvailable && <p style={{fontSize:"24px",color:"black"}}>Nie udało się zarezerwować wizyty.<br/>Proszę wybrać inny termin</p>}
             </section>
         </div>
     );

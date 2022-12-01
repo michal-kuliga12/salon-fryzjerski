@@ -11,8 +11,7 @@ export const bookAdd = async (req,res) => {
         const { klient, data, usluga, metoda, cena } = req.body;
         await connectMongo()
         let book = await bookingModel.create(req.body)
-        res.json({ book })
-
+        res.status(200)
     } catch(error) {
         console.log(error)
         res.json(error)
