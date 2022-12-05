@@ -30,13 +30,15 @@ export default function Home() {
         <section className={styles.section1}>
           <div className={styles.section1_text}>
             <h2><i>O nas</i></h2>
-            <UnderLineSpan width="80%"/>
           </div>
           <div className={styles.section1_item}>
             <Image className={styles.section1_image} src="/section2-img1.jpg" width={360} height={360} alt="!!!"/>
             <div>
-              <p style={{fontSize:"32px"}}>Salon Fryzjerski La Bella powstał w 2011 r.</p>
+              <p style={{fontSize:"24px"}}>Salon Fryzjerski La Bella powstał w 2011 r.</p>
               <br/>
+              <p>Jesteśmy salonem świadczącym najwyższej jakości usługi fryzjerskie stosując jednocześnie najwyższej klasy nowości technologiczne i produkty najlepszej jakości.
+              Nasze koloryzacje nie dewastują włosów i skóry głowy, równocześnie są trwałe, rozjaśniające oraz kryjące siwe włosy, są nietoksyczne.
+              Zapewniamy modne cięcia i koloryzację, profesjonalną analizę kolorystyczną, dobór fryzury do twarzy i osobowości.</p>
               <p>Oferujemy pełen zakres usług. Nasze motto to: Rzeczy niemożliwe robimy od reki na cuda trzeba chwile poczekać.</p>
             </div>
           </div>

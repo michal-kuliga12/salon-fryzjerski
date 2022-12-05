@@ -32,9 +32,9 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.nav_container}>
 {/*------------ LOGO */}
-                <Link href="/">
-                    <h1>LOGO</h1>
-                </Link>
+                <div>
+                    <h1>La<span style={{color:"gold"}}> Bella</span></h1>
+                </div>
 {/*-------------Lista zawierająca linki do innych stron */}
                 <ul className={(buttonActive? styles.nav_list_active:styles.nav_list)}>
                     <li className={styles.nav_listEl}><b>MENU</b></li>
@@ -45,10 +45,11 @@ const Navbar = () => {
                             </li>
                         );
                     })}
-                    <div className={styles.nav_userImage}>
+                    <li className={styles.nav_userImage}>
                         <Link href="/login">
-                        <Image src="/navbarUser.png" width={32} height={32} alt="flaticon"/></Link>    
-                    </div>
+                            <Image src="/navbarUser.png" width={32} height={32} alt="flaticon"/>
+                        </Link>    
+                    </li>
                 </ul>
 {/* ------------Poniżej mamy przycisk do otwierania menu tzw hamburger */}
                 <div 

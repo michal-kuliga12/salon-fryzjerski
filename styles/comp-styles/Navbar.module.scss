@@ -14,7 +14,7 @@ $nav-height: 64px;
     border-bottom: solid 4px v.$accent-color;
     padding: 10px 10px 10px 30px;
 
-    height: $nav-height;
+    height: 80px;
 
     display: flex;
     flex-direction: row;
@@ -73,7 +73,7 @@ $nav-height: 64px;
     width: 40px;
     height: 30px;
     position: absolute;
-    top: 16px;
+    top: 24px;
     right: 16px;
 
     display: flex;
@@ -104,7 +104,17 @@ $nav-height: 64px;
     border-radius: 10px;
     width: 100%;
     background-color: rgb(49, 49, 49);
-
+}
+.nav_userImage {
+    position: relative;
+    bottom: -500px;
+    right: -70px;
+    background-color: white;
+    border-radius: 50%;
+}
+.nav_userImage:hover {
+    transition: 0.5s;
+    background-color: v.$user-hover;
 }
 @media (min-width:768px) {
     #lock {
@@ -113,7 +123,6 @@ $nav-height: 64px;
         right: 4px;
     }
     .nav_container {
-        height: 80px;
         border-bottom: 4px solid v.$accent-color;
     }
     .nav_btn {
@@ -150,6 +159,7 @@ $nav-height: 64px;
         width: 48px;
         height: 48px;
         margin-left: 20px;
+        position:static;
 
 
         background-color: rgb(241, 241, 241);

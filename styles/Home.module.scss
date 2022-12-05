@@ -7,8 +7,6 @@ $border2-color: rgb(177, 177, 177);
 $accent-color: rgb(175, 132, 15);
 @media (min-width: 1px) {
     .section1_image {
-        -webkit-box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
-        -moz-box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
         box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
     }
     .section1 {
@@ -21,7 +19,7 @@ $accent-color: rgb(175, 132, 15);
     }
     .section1_item div p {
         width: 360px;
-        font-size: 26px;
+        font-size: 16px;
         line-height: 36px;
         text-align: left;
     }
