@@ -1,7 +1,7 @@
 .container {
     background-color: white;
     position: fixed;
-    width: 450px;
+    width: 96vw;
     height: 600px;
     padding: 36px 20px;
     border: 1px solid black;
@@ -31,6 +31,7 @@
 .container textarea {
     min-width: 100%;
     max-width: 100%;
+    min-height: 200px;
     font-size: 16px;
     outline: none;
     padding: 10px;
