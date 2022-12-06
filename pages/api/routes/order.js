@@ -5,12 +5,11 @@
 
  import { orderAdd, orderDelete} from '../controllers/order';
 
- export default function orderRoutes(req,res){
+ export default async function orderRoutes(req,res){
      const method = req.method
      switch (method) {
          case "POST":
              orderAdd(req,res)
-             res.status(200).json({ message: "Wykorzystano metode POST"})
              break;
         //  case "PUT":
         //      orderEdit(req,res)
@@ -18,7 +17,7 @@
         //      break;
          case "DELETE":
              orderDelete(req,res)
-             res.status(200).json({ message: "Wykorzystano metode DELETE"})
+             res.status(200).send({ message: "Wykorzystano metode DELETE"})
              break;
      }
  }

@@ -7,6 +7,9 @@
     margin-bottom: 6px;
     border-bottom: 1px solid lightgray;
 }
+.booking__section p {
+    font-size: 14px;
+}
 .booking__info {
     width: 100%;
     align-items:flex-start;
@@ -19,7 +22,7 @@
 }
 .booking__item {
     width: 100%;
-    height: 70px;
+    max-height: 100px;
     background-color: white;
     padding: 4px;
     border: 1px solid lightgray;
@@ -50,7 +53,7 @@
     width: 100px;
 }
 .booking__itemUp > div:nth-of-type(3) {
-    width: 64px;
+    width: 24px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -65,11 +68,27 @@
 }
 .booking__itemDown {
     width: 100%;
-    font-size: 14px;
-    padding-inline: 24px;
+    font-size: 12px;
+    padding-inline: 4px;
     border-top: 1px solid rgb(175, 175, 175);
     background-color: rgb(255, 255, 255);
 
     display: flex;
     justify-content: space-between;
+}
+.booking__itemUp_date > p {
+    text-align: right;
+}
+.booking__itemDown > p:last-child {
+    text-align: right;
+    
+}
+@media (min-width: 768px) {
+    .booking__section p {
+        font-size: 16px;
+    }
+    .booking__itemDown {
+        font-size: 14px;
+        padding-inline: 24px;     
+    }
 }

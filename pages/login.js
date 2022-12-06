@@ -18,48 +18,50 @@ const Login = () => {
         <Head>
             <title>Labella | Logowanie</title>
         </Head>
-            <Link className={styles.back_button} href="/">
-                <Image src="/login-back.png" width={32} height={32} alt="flaticon"/>
-            </Link>
-            <h1>LOGOWANIE</h1>
-            <input
-                type="text"
-                required
-                value={username}
-                onChange={(e)=>setUsername(e.target.value)}
-                placeholder="Nazwa użytkownika"></input>
-            <input
-                type="email"
-                required
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}
-                placeholder="Email"></input>
-            <input
-                type="text"
-                required
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-                placeholder="Hasło"></input>
-            <button onClick={async (event)=>{
-                event.preventDefault
-                const body = {username,email,password}
-                try {
-                    mutateUser(
-                      await fetchJson("/api/routes/login", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(body)
-                      }),false
-                    );
-                  } catch (error) {
-                    console.log(error)
-                  }
+        <Image className={styles.bg_img} src="/login-bg.jpg" layout="fill" objectFit="cover" alt="pixabay.com" />
+        <Link className={styles.back_button} href="/">
+            <Image src={"/login-back.png"} width={32} height={32} alt="flaticon"/>
+        </Link>
+            <div className={styles.content}>
+                <h1>PANEL ADMINA</h1>
+                    <input
+                        type="text"
+                        required
+                        value={username}
+                        onChange={(e)=>setUsername(e.target.value)}
+                        placeholder="Nazwa użytkownika"></input>
+                    <input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        placeholder="Email"></input>
+                    <input
+                        type="text"
+                        required
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        placeholder="Hasło"></input>
+                    <button onClick={async (event)=>{
+                        event.preventDefault
+                        const body = {username,email,password}
+                        try {
+                            mutateUser(
+                            await fetchJson("/api/routes/login", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(body)
+                            }),false
+                            );
+                        } catch (error) {
+                            console.log(error)
+                        }
 
-            }}>
-                ZATWIERDŹ
-            </button>
-            
-        </div>
+                    }}>
+                        ZATWIERDŹ
+                    </button>
+            </div>     
+        </div>    
     );
 }
  

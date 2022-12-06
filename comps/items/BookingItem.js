@@ -21,7 +21,7 @@ const BookingItem = ({item,index}) => {
             <div>
                 <p>{index+1}. {item.klient}</p>
             </div>
-            <div>
+            <div className={styles.booking__itemUp_date}>
                 <p>{data.getDate()}/{data.getMonth()+1}/{data.getFullYear()}</p>
                 <p>{data.getHours()}:00</p>
             </div>

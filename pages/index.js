@@ -4,6 +4,13 @@ import DotPattern from '../comps/stylingProps/DotPattern'
 import LinePattern from '../comps/stylingProps/LinePattern'
 import UnderLineSpan from '../comps/stylingProps/UnderLineSpan'
 import styles from '../styles/Home.module.scss'
+//images
+import section3_img1 from "../public/onas-1.jpg"
+import section3_img2 from "../public/onas-4.jpg"
+import section3_img3 from "../public/onas-5.jpg"
+import section3_img4 from "../public/onas-6.jpg"
+import Link from 'next/link'
+
 
 export default function Home() {
   return (
@@ -26,8 +33,8 @@ export default function Home() {
         />
       </div>
       <div className={styles.welcomeMessage}>
-        <h1>Witamy w naszym <span style={{color:"rgb(167, 124, 7)",}}
-        >salonie!</span></h1>
+        <h1>Witamy w salonie <span style={{color:"rgb(167, 124, 7)",whiteSpace:"nowrap"}}
+        >La Bella!</span></h1>
       </div>
       <DotPattern/>
       <div className={styles.wrapper}>
@@ -48,10 +55,10 @@ export default function Home() {
               </div>
               <div className={styles.section1_flex_item}>
                 <picture className={styles.section1_image}>
-                  <Image src="/onas-2.jpg" width={300} height={300} layout="responsive" alt="pixabay.com"/>
+                  <Image src='/onas-2.jpg' width={300} height={300} layout="responsive" alt="pixabay.com"/>
                 </picture>
                 <picture className={styles.section1_image}>
-                  <Image src="/onas-3.jpg" width={300} height={300} layout="responsive" alt="pixabay.com"/>
+                  <Image src='/onas-3.jpg' width={300} height={300} layout="responsive" alt="pixabay.com"/>
                 </picture>
               </div>
             </div>
@@ -91,6 +98,17 @@ export default function Home() {
           </div>
         </section>
         <section className={styles.section3}>
+          <h2>Nasze portfolio</h2>
+            <div className={styles.section3_flex_container}>
+              <div><Image src={section3_img1} layout="responsive" alt="pixabay.com"/></div>
+              <div><Image src={section3_img2} layout="responsive" alt="pixabay.com"/></div>
+              <div><Image src={section3_img3} layout="responsive" alt="pixabay.com"/></div>
+              <div><Image src={section3_img4} layout="responsive" alt="pixabay.com"/></div>
+            </div>
+          <div className={styles.section3_gallery_info}>
+            <h2>Chcesz zobaczyć więcej? Kliknij tutaj:</h2>
+            <Link href="/gallery"><button onClick={()=>{}}>Galeria</button></Link>
+          </div>
         </section>
       </div>
     </div>

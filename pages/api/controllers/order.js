@@ -11,9 +11,9 @@ export const orderAdd = async (req,res) => {
     try {
         const { name, customer, address, price, quantity, order_date, realization_date} = req.body;
         await connectMongo()
-        let order = await orderModel.create(req.body)
-        res.json({ order })
-
+        const order = await orderModel.create(req.body)
+        console.log(order)
+        res.status(200).json( order )
     } catch(error) {
         console.log(error)
         res.json(error)

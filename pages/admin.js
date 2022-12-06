@@ -89,7 +89,7 @@ const PanelAdmina = ({ booking, news, order}) => {
                         </span>
                     </div>
                     <div className={newsStyles.news__list}>
-                        {news.map((item,index)=>{
+                        {sortedNews.map((item,index)=>{
                             return (
                                 <div key={index} className={styles.news__item} >
                                     <NewsItem item={item} index={index} />

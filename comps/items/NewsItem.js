@@ -6,10 +6,14 @@ const NewsItem = ({item,index}) => {
     return (
         <>
             <Link href={`/news/${item._id}`}>
-                <Image src={item.imageUrl} width={600} height={400}/>
-                <div className={styles.news__itemInfo}>
-                    <p>{item.tytul}</p>
-                    <p>{item.autor}</p>
+                <div className={styles.news__item}>
+                    <div className={styles.news__item_image}>
+                        <Image src={item.imageUrl} width={600} height={400} layout="responsive"/>
+                    </div>
+                    <div className={styles.news__item_info}>
+                        <p>{item.tytul}</p>
+                        <p>{item.autor}</p>
+                    </div>
                 </div>
             </Link>
         </>

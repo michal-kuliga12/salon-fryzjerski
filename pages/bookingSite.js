@@ -81,6 +81,7 @@ const Rezerwacja = ({ booking }) => {
         console.log(body)
         if (service && client && date) {
             const isDateFound = await UseFetch("./api/controllers/bookFind","PUT",body)   
+            console.log(isDateFound)
                 if (isDateFound) { 
                     setBooked(false)
                     setError(false)
@@ -111,7 +112,7 @@ const Rezerwacja = ({ booking }) => {
             <h1>Rezerwacja</h1>
             <section className={styles.detailsSection}>
                 <div className={styles.detailsHeader}>
-                    <Image src="/scissors.png" width={32} height={32}/>
+                    <Image src="/scissors.png" width={32} height={32} alt="flaticon.com"/>
                     <h2>Wybierz rodzaj i szczegóły wizyty</h2>
                 </div>
                 <div className={styles.background}> {/*Zdjęcie: https://salongabriellubon.pl/ */}
@@ -133,7 +134,7 @@ const Rezerwacja = ({ booking }) => {
             </section>
             <section className={styles.dateSection}>
             <div className={styles.detailsHeader}>
-                    <Image src="/calendar.png" width={32} height={32}/>
+                    <Image src="/calendar.png" width={32} height={32} alt="flaticon.com"/>
                     <h2>Termin wizyty</h2>
                 </div>
                 <Calendar getDateFromCalendar={getDateFromCalendar} />

@@ -25,19 +25,15 @@ const News = ({news}) => {
                 <DotPattern />
             </section>
             <section className={styles.news__section}>
-            {/* <p>Tutaj będą wyświetlane wszystkie bieżące aktualności odnośnie salonu, terminów otwarcia i nowych produktów.</p> */}
-                <div className={styles.news__content}>
-                    <div className={styles.news__items}>
-                        {news.map((item,index)=>{
-                            return (
-                                <div key={index} className={styles.news__item} >
-                                     <NewsItem item={item} index={index} />
-                                </div>  
-                            );
-                    })}
-                    </div>
-                </div>     
-
+                <div className={styles.news__item_list}>
+                    {news.map((item,index)=>{
+                        return (
+                            <div key={index} className={styles.news__item_wrapper} >
+                                    <NewsItem item={item} index={index} />
+                            </div>  
+                        );
+                })}
+                </div>   
             </section>
         </div>
     );

@@ -8,10 +8,10 @@ import styles from "../../styles/id_Shop.module.scss"
 // export const getServerSideProps = async (context) => {
 //     const { id } = context.query
 //     await connectMongo()
-//     const res = await newsModel.findOne({_id: id}) 
-//     const news = await JSON.parse(JSON.stringify(res))
-//     console.log(news.tytul)
-//     return { props: { news }}
+//     const res = await productModel.findOne({_id: id}) 
+//     const product = await JSON.parse(JSON.stringify(res))
+//     console.log(product.tytul)
+//     return { props: { product }}
 // }
 export const getStaticPaths = async () => {
     await connectMongo()

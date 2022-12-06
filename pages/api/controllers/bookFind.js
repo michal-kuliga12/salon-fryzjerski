@@ -16,10 +16,10 @@ const bookFind = async (req, res) => {
         console.log(foundData)
         if (foundData) {
             console.log("Znaleziono date")
-            res.status(200).send(foundData).end()
+            res.status(200).json({foundData})
         } else {
             console.log("Nie znaleziono daty")
-            res.status(204)
+            res.status(204).end()
         }
     } catch (error) {
         console.log(error)
