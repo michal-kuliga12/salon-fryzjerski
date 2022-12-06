@@ -106,9 +106,9 @@ $nav-height: 64px;
     background-color: rgb(49, 49, 49);
 }
 .nav_userImage {
-    position: relative;
-    bottom: -440px;
-    right: -70px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     background-color: white;
     border-radius: 50%;
 }

@@ -18,6 +18,7 @@ import { useState } from "react";
 import useUser from "../lib/useUser";
 import orderModel from "../models/order"
 import OrderItem from "../comps/items/OrderItem"
+import Link from "next/link"
 
 const PanelAdmina = ({ booking, news, order}) => {
     const sortedOrder = order.sort((a,b)=>new Date(a.order_date) - new Date(b.order_date))
@@ -27,7 +28,17 @@ const PanelAdmina = ({ booking, news, order}) => {
     const [isActive,setIsActive] = useState(false)
     const { user } = useUser({ redirectTo: "/login"})
     if (!user || user.isLoggedIn === false) {
-        return (<div>Loading...</div>)
+        return (
+            <div style={{padding:"20px"}}>
+                <Link href="/">
+                    <Image src={"/login-back.png"} width={32} height={32} alt="flaticon"/>
+                </Link>
+                <div style={{margin:"auto",padding: "20px",lineHeight:"32px", width:"300px",fontSize:"18px"}}>
+                    <p>Wystąpił błąd logowania</p>
+                    <p>Wróc do ekranu logowania</p>
+                </div>
+            </div>
+        )
     }
     return (
         <div className={styles.body}>
