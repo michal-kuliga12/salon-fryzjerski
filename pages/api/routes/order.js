@@ -3,7 +3,7 @@
  * @param {import('next').NextApiResponse} res 
  */
 
- import { orderAdd, orderDelete, orderEdit } from '../controllers/order';
+ import { orderAdd, orderDelete} from '../controllers/order';
 
  export default function orderRoutes(req,res){
      const method = req.method
@@ -12,10 +12,10 @@
              orderAdd(req,res)
              res.status(200).json({ message: "Wykorzystano metode POST"})
              break;
-         case "PUT":
-             orderEdit(req,res)
-             res.status(200).json({ message: "Wykorzystano metode PUT"})
-             break;
+        //  case "PUT":
+        //      orderEdit(req,res)
+        //      res.status(200).json({ message: "Wykorzystano metode PUT"})
+        //      break;
          case "DELETE":
              orderDelete(req,res)
              res.status(200).json({ message: "Wykorzystano metode DELETE"})

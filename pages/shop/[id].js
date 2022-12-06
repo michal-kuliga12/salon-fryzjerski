@@ -5,14 +5,14 @@ import UseFetch from "../../lib/useFetch";
 import productModel from "../../models/product";
 import styles from "../../styles/id_Shop.module.scss"
 
-// // export const getServerSideProps = async (context) => {
-// //     const { id } = context.query
-// //     await connectMongo()
-// //     const res = await newsModel.findOne({_id: id}) 
-// //     const news = await JSON.parse(JSON.stringify(res))
-// //     console.log(news.tytul)
-// //     return { props: { news }}
-// // }
+// export const getServerSideProps = async (context) => {
+//     const { id } = context.query
+//     await connectMongo()
+//     const res = await newsModel.findOne({_id: id}) 
+//     const news = await JSON.parse(JSON.stringify(res))
+//     console.log(news.tytul)
+//     return { props: { news }}
+// }
 export const getStaticPaths = async () => {
     await connectMongo()
     const res = await productModel.find({})
@@ -36,7 +36,6 @@ export const getStaticProps = async (context) => {
         props: { product: product}
     }
 }
-
 const ProductDetails = ({ product }) => {
     const [productAmount, setProductAmount] = useState(0)
     const [street, setStreet] = useState("")
@@ -47,7 +46,7 @@ const ProductDetails = ({ product }) => {
         <div className={styles.container}>
             <div className={styles.order_info_container}>
                 <picture>
-                    <Image className={styles.order_image} src={product.imageUrl} width={500} height={500} objectFit="contain" alt={"https://allefryz.pl"}/>
+                    <Image className={styles.order_image} src={product.imageUrl} width={500} height={500} objectFit="contain" alt="https://allefryz.pl"/>
                 </picture>
                 <div className={styles.order_options_container}>
                     <div className={styles.order_options_title}>

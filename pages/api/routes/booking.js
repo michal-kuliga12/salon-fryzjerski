@@ -10,7 +10,7 @@ export default function bookingRoutes(req,res){
     switch (method) {
         case "POST":
             bookAdd(req,res)
-            res.status(200).send({ message: "Wykorzystano metode PUT"}).end()
+            res.status(200).send({ message: "Wykorzystano metode PUT"})
             break;
         case "PUT":
             bookEdit(req,res)

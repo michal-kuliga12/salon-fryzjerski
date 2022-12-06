@@ -33,7 +33,6 @@ export const getStaticProps = async (context) => {
         props: { news: news}
     }
 }
-
 const NewsDetails = ({ news }) => {
     return (
         <div className={styles.newsDetails__container}>

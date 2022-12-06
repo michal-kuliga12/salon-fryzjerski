@@ -1,107 +1,128 @@
-// .container {
-//     background-image: linear-gradient(to bottom,rgb(31, 31, 31),rgb(121, 99, 1));
-    
-// }
-$border-color: rgb(99, 99, 99);
-$border2-color: rgb(177, 177, 177);
-$accent-color: rgb(175, 132, 15);
-@media (min-width: 1px) {
-    .section1_image {
-        box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
-    }
-    .section1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .section1_item div {
-        padding-block: 20px;
-    }
-    .section1_item div p {
-        width: 360px;
-        font-size: 16px;
-        line-height: 36px;
-        text-align: left;
-    }
-    .section1_item {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .section1_salonImage {
-        display: none;
-        -webkit-box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
-        -moz-box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
-        box-shadow: 7px 8px 25px 17px rgba(161, 161, 161, 1);
-    }
-}
-.content {
-    height: 960px;
-    width: 50%;
-    background-color: white;
-}
+@use '/styles/variables' as v;
+
 .backgroundParent {
     box-sizing: content-box;
     position: relative;
-    -webkit-box-shadow: 0px 30px 90px -6px rgba(136, 136, 136, 1);
-    -moz-box-shadow: 0px 30px 90px -6px rgba(136, 136, 136, 1);
     box-shadow: 0px 30px 90px -6px rgba(136, 136, 136, 1);
     min-height: 400px;
     z-index: 0;
+    border-bottom: 2px solid v.$primary-color-light;   
+}
+.container {
+    background-color: transparent;
+}
+// .wrapper {
+//     margin: 0 auto;
+//     padding: 0 16px;
+//     max-width: 1200px;
+// }
+.section1 h1 {
+    width: 100%;
+    border-bottom: 1px solid v.$secondary-color-dark;
+    text-align: center;
+    color: v.$secondary-color;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.section1  h2 {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 24px;
+}
+.container  p {
+    line-height: 1.5rem;
+    font-size: 14px;
+    font-weight: 300;
+}
+.section1 p {
+    max-width: 600px;
+}
+.section1_background{
+    border-block: 1px solid v.$primary-color;
+    color: white;
+    width: 100vw;
+    height: auto;
+    background-image: url('/onas-tlo.png');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 40px 8vw;
+    .before{
+        opacity: 0.7;
+    }
 }
 .welcomeMessage {
     display: none;
 }
 .section1 {
-    background-color: rgb(240, 240, 240);
-    color: rgb(3, 3, 3);
-    padding: 40px;
-    box-shadow: 2px 2px 4px rgb(70, 70, 70);
-}
-.section1 h2 {
-    color: $accent-color;
-    margin-top: 16px;
-    margin-bottom: 26px;
-    font-size: 36px;
-    text-align: center;
-}
-.section1 :nth-child(2) {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-.section2 {
-    background-color: rgb(223, 223, 223);
     width: 100%;
-    padding: 40px 60px;
-    
+}
+.section1_flex_container {
+    gap: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;   
-    gap: 30px; 
-
+    flex-wrap: wrap;
+    width: 100%;
 }
-.section2_itemContainer {
-    background-color: rgb(238, 238, 238);
-    width: 80%;
-    height: 400px;
-    padding: 10px;
-
-    border-radius: 30px;
-    box-shadow: 1px 1px 4px rgb(66, 66, 66);
+.section1_flex_item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 500px;
+    height: auto;
 }
-.section2_itemContainer p {
-    font-size: 16px;
-    text-align: justify;
-}
-@media (min-width:420px) {
-    .section1 {
-        box-shadow: 2px 2px 4px rgb(48, 48, 48);
+.section1_image {
+    box-sizing: content-box;
+    width: 80vw;
+    height: auto;
+    position: relative;
+    & > img {
+        box-shadow: 4px 6px 4px -2px rgb(41, 42, 48)!important;
     }
-    .section1_text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+}
+
+.section1_flex_item > picture:first-child {
+    float: left;
+}
+.section1_flex_item > picture:nth-child(2) {
+    float: right;
+}
+// SEKCJA 2
+.section2 {
+    color: white;
+    background-color: v.$primary-color;
+    width: 100%;
+    padding: 10px 8vw;
+}
+.section2_flex_container {
+    margin: auto;
+    max-width: 1000px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.section2 h2 {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 30px;
+    color: v.$secondary-color-dark;
+}
+.section2 h4 {
+    font-weight: 200;
+    color: v.$secondary-color-dark;
+}
+.section2_headers {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+@media (min-width:480px) {
+    .container  p {
+        line-height: 2rem;
+        font-size: 16px;
     }
     .welcomeMessage {
         display: block;
@@ -123,42 +144,40 @@ $accent-color: rgb(175, 132, 15);
         padding: 0;
         margin: 0;
     }
-    .section2_itemContainer {
-        width: 340px;
+    .section1_flex_item picture:nth-child(1){
+        align-self: flex-start;
+    }
+    .section1_flex_item picture:nth-child(2){
+        align-self: flex-end;
+    }
+    .section1_image {
+        width: 50vw;
     }
 }
 @media (min-width:768px) {
-    .section1_item {
-        gap: 30px;
-        display: flex;
+    .section1_flex_container {
         flex-direction: row;
-        justify-content: left;
-        margin-left: 70px;
-    }
-    .section1_item div {
-        margin: 10px 20px;
-        width: 350px;
-    }
-    .section1_item div p {
-        font-size: 26px;
-        line-height: 36px;
-        text-align: left;
-    }
-    .section2 {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap;
         gap: 40px;
     }
-    .section1_salonImage {
-        display: inherit;
-        position: absolute;
-        top: 650px;
-        right:32px;
-        height: 648px;
-        width: 492px;
-        @media (max-width: 1400px){
-            display: none;
-        }
+    .section1_image {
+        width: 350px;
+    }
+    .section1_flex_container > div:last-child{
+        width: 70vw;
+        max-width: 700px;
+    }
+    .section1_flex_item picture:nth-child(1){
+        align-self: flex-start;
+    }
+    .section1_flex_item picture:nth-child(2){
+        align-self: flex-end;
+    }
+    
+}
+
+@media (min-width:1024px) {
+    .section1_image {
+        width: 400px;
     }
 }

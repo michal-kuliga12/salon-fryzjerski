@@ -3,7 +3,7 @@ const DotPattern = () => {
         <div style={{
             padding: 0,
             margin: 0,
-            backgroundColor: "inherit",
+            backgroundColor: "transparent",
             backgroundImage: "radial-gradient(white 3px, transparent 3px)",
             backgroundSize: "18px 18px",
             height: "90px",

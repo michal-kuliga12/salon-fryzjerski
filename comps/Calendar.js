@@ -25,7 +25,7 @@ const Calendar = ({getDateFromCalendar}) => {
     },[chosenHour]);
 
     const handleDayChange = (increment) => {
-        let tempDate = chosenDate;
+        const tempDate = chosenDate;
         tempDate.setDate(chosenDate.getDate() + increment);
         setChosenDate(tempDate)
         setDay(chosenDate.getDate())
@@ -37,8 +37,13 @@ const Calendar = ({getDateFromCalendar}) => {
         <div className={calendarStyles.container}>
             <section className={calendarStyles.selectDate_container}>
                 <button onClick={()=>{
-                    if (!(actualDate.getDay()===chosenDate.getDay() &&
-                    actualDate.getDate()===chosenDate.getDate())) {
+                    if (
+                        !(
+                            actualDate.getDay()===chosenDate.getDay() &&
+                            actualDate.getDate()===chosenDate.getDate()
+                        )
+                    )
+                    {
                         handleDayChange(-1)
                     } else console.log("Nie można zarezerwować przeszłych dni")}}
                     ><Image src="/angle-left.png" alt="flaticon.com" width={16} height={16}/></button>
@@ -47,8 +52,12 @@ const Calendar = ({getDateFromCalendar}) => {
                     <p>({weekday[dayOfWeek]})</p>
                 </div>
                 <button onClick={()=>{
-                    if (!(actualDate.getDay()===chosenDate.getDay() &&
-                    actualDate.getDate()!=chosenDate.getDate())) {
+                    if (
+                        !(
+                            actualDate.getDay()===chosenDate.getDay() &&
+                            actualDate.getDate()!=chosenDate.getDate()
+                        )
+                    ) {
                         handleDayChange(1)
                     }else console.log("Nie można rezerwować tydzień w przód")
                    }}><Image src="/angle-right.png" alt="flaticon.com" width={16} height={16}/></button>    

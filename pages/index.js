@@ -10,6 +10,10 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Labella | Strona główna</title>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'></link>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css'></link>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'></link>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'></link>
       </Head>
       <div className={styles.backgroundParent}>
         <Image
@@ -26,62 +30,69 @@ export default function Home() {
         >salonie!</span></h1>
       </div>
       <DotPattern/>
-      <main className="oNas">
-        <section className={styles.section1}>
-          <div className={styles.section1_text}>
-            <h2><i>O nas</i></h2>
-          </div>
-          <div className={styles.section1_item}>
-            <Image className={styles.section1_image} src="/section2-img1.jpg" width={360} height={360} alt="!!!"/>
-            <div>
-              <p style={{fontSize:"24px"}}>Salon Fryzjerski La Bella powstał w 2011 r.</p>
-              <br/>
-              <p>Jesteśmy salonem świadczącym najwyższej jakości usługi fryzjerskie stosując jednocześnie najwyższej klasy nowości technologiczne i produkty najlepszej jakości.
-              Nasze koloryzacje nie dewastują włosów i skóry głowy, równocześnie są trwałe, rozjaśniające oraz kryjące siwe włosy, są nietoksyczne.
-              Zapewniamy modne cięcia i koloryzację, profesjonalną analizę kolorystyczną, dobór fryzury do twarzy i osobowości.</p>
-              <p>Oferujemy pełen zakres usług. Nasze motto to: Rzeczy niemożliwe robimy od reki na cuda trzeba chwile poczekać.</p>
+      <div className={styles.wrapper}>
+        <div className={styles.section1_background}>
+          <section className={styles.section1}>
+            <h1><i>O nas</i></h1>
+            <div className={styles.section1_flex_container}>
+              <div className={styles.section1_flex_item}>
+                <p>Salon Fryzjerski La Bella powstał w 2011 r.</p>
+                <br/>
+                <p>Jesteśmy salonem świadczącym najwyższej jakości usługi fryzjerskie stosując jednocześnie najwyższej klasy nowości technologiczne i produkty najlepszej jakości.</p>
+                <p>Nasze koloryzacje nie dewastują włosów i skóry głowy, równocześnie są trwałe, rozjaśniające oraz kryjące siwe włosy, są nietoksyczne.</p>
+                <br/>
+                <p>Zapewniamy modne cięcia i koloryzację, profesjonalną analizę kolorystyczną, dobór fryzury do twarzy i osobowości.</p>
+                <p>Oferujemy pełen zakres usług. Nasze motto to: Rzeczy niemożliwe robimy od reki na cuda trzeba chwile poczekać.</p>
+                <br/><br/>
+                <h2><u>Zapraszamy!</u></h2>
+              </div>
+              <div className={styles.section1_flex_item}>
+                <picture className={styles.section1_image}>
+                  <Image src="/onas-2.jpg" width={300} height={300} layout="responsive" alt="pixabay.com"/>
+                </picture>
+                <picture className={styles.section1_image}>
+                  <Image src="/onas-3.jpg" width={300} height={300} layout="responsive" alt="pixabay.com"/>
+                </picture>
+              </div>
             </div>
-          </div>
-          <div className={styles.section1_item}>
-            <div>
-              <p>Dzięki rezerwacji on-line w łatwy sposób zarezerwujesz, zmienisz lub odwołasz wizytę.</p>
-              <br/>
-              <p style={{fontSize:"38px",fontWeight:"bold",}}>Zapraszamy!</p>
-            </div>
-            <Image className={styles.section1_image} src="/section2-img2.jpg" width={360} height={360} alt="salon-labella.pl"/>
-          </div>
-          <div className={styles.section1_salonImage}><Image src="/section1-interior.jpg" layout="fill" objectFit='contain'/></div>
-        </section>
-        <span style={{
-          display: "block",
-          backgroundColor: "gold",
-          borderRadius: "1px",
-          width: "90%",
-          height: "2px",
-          margin: "10px auto",
-        }}></span>
+          </section>
+        </div>
         <section className={styles.section2}>
-          <div className={styles.section2_itemContainer}>
-              <span></span>
-              <p>Stosujemy produkty profesjonalne,wyselekcjonowane pod względem jakości, oraz takich które sa przyjazne dla naszego zdrowia.Pracujemy na produktach marek Togethair,Be Color,Estel,Framesi.Ten przytulny salon w którym pracujemy czyli nasz zespół 4-osobowy jest efektem naszej pasji do fryzjerstwa i ludzi .Najwazniejsze jest zadowolenie klienta i poczucie komfortu.</p>
-          </div>
-          <div className={styles.section2_itemContainer}>
-            <span></span>
-            <p>Przez ostatnie lata zaufało nam setki klientów. I ty możesz do nich dołączyć już dziś! Skontaktuj się z nami i wybierz dogodny termin.</p>
-          </div>
-          <div className={styles.section2_itemContainer}>
-            <span>
-            </span>
-            <p>Ciągły rozwój jest dla nas bardzo ważny dlatego uczesticzymy w licznych szkoleniach, zdobywamy wiedzę, śledzimy najnowsze trendy.</p>
-          </div>
-          <div className={styles.section2_itemContainer}>
-            <span></span>
-            <p>Oferujemy m.in. koloryzacje kreatywne, awangardowe, flamboyage, sombre, ombre ART HAT, refleksy, strzyżenie damskie, meskie, dziecięce, fryzury okolicznosciowe i ślubne, zabiegi pielęgnacyjne na włosy, sauna.</p>
-            
+          <h2>Dlaczego warto nas wybrać?</h2>
+          <div className={styles.section2_flex_container}>
+            <div className={styles.section2_flex_item}>
+                <div className={styles.section2_headers}>
+                  <i style={{fontSize: "32px"}} className="fi fi-rs-trophy"></i>
+                  <h4>PONAD 12 LAT DOŚWIADCZENIA</h4>
+                </div>
+                <p>Stosujemy produkty profesjonalne,wyselekcjonowane pod względem jakości, oraz takich które sa przyjazne dla naszego zdrowia.Pracujemy na produktach marek Togethair,Be Color,Estel,Framesi.Ten przytulny salon w którym pracujemy czyli nasz zespół 4-osobowy jest efektem naszej pasji do fryzjerstwa i ludzi .Najwazniejsze jest zadowolenie klienta i poczucie komfortu.</p>
+            </div>
+            <div className={styles.section2_flex_item}>
+              <div className={styles.section2_headers}>
+                <i style={{fontSize: "32px"}} className="fi fi-ss-barber-shop"></i>
+                <h4>ZAUFANIE</h4>
+              </div>
+              <p>Przez ostatnie lata zaufało nam setki klientów. I ty możesz do nich dołączyć już dziś! Skontaktuj się z nami i wybierz dogodny termin.</p>
+            </div>
+            <div className={styles.section2_flex_item}>
+              <div className={styles.section2_headers}>
+              <i style={{fontSize: "32px"}} className="fi fi-rs-book-bookmark"></i>
+                <h4>WIEDZA</h4>
+              </div>
+              <p>Ciągły rozwój jest dla nas bardzo ważny dlatego uczesticzymy w licznych szkoleniach, zdobywamy wiedzę, śledzimy najnowsze trendy.</p>
+            </div>
+            <div className={styles.section2_flex_item}>
+              <div className={styles.section2_headers}>
+                <i style={{fontSize: "32px"}} className="fi fi-tr-coins"></i>
+                <h4>NISKIE CENY</h4>
+              </div>
+              <p>Oferujemy m.in. koloryzacje kreatywne, awangardowe, flamboyage, sombre, ombre ART HAT, refleksy, strzyżenie damskie, meskie, dziecięce, fryzury okolicznosciowe i ślubne, zabiegi pielęgnacyjne na włosy, sauna.</p>
+            </div>
           </div>
         </section>
-        <LinePattern />
-      </main>
+        <section className={styles.section3}>
+        </section>
+      </div>
     </div>
   )
 }
