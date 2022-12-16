@@ -24,7 +24,11 @@ const NavItems = [
     {
         text: "Sklep",
         href: "/shop"
-    }
+    },
+    {
+        text: "Lokalizacja",
+        href: "/location"
+    },
 ]
 const Navbar = () => {
     const [buttonActive, setButtonActive] = useState(0);

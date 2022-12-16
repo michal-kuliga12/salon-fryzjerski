@@ -8,7 +8,7 @@ const Footer = () => {
                 <Image className={styles.infoImage} src="/Footer1.png" width={64} height={64} alt="flaticon.com"/>
                 <div className={styles.infoText}>
                     <p><b>Lokalizacja</b></p>
-                    <p>ul. asdpkajsdpasjk 24a</p>
+                    <p>Akademicka 2/4</p>
                     <p>35-030 Rzeszów</p>
                 </div>
             </div>
