@@ -1,7 +1,7 @@
 @use '/styles/variables' as v;
 .wrapper {
     padding: 8px;
-    height: 70vh;
+    min-height: 650px;
 }
 .map {
     border: none;
