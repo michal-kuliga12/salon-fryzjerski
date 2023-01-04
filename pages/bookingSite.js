@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import ServiceItem from "../comps/items/ServiceItem";
 import styles from "../styles/BookingSite.module.scss"
-import bookingModel from "../models/booking";
 import connectMongo from "../lib/connectMongo";
 import UseFetch from "../lib/useFetch";
 import Head from "next/head";
