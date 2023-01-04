@@ -102,22 +102,22 @@ const ProductDetails = ({ product }) => {
                             }}>+</button>
                         </div>
                         <div className={styles.order_options_button_container}>
-                            <button className={styles.order_options_button} onClick={()=>{
-                                const order_date = new Date
-                                let realization_date = new Date
-                                realization_date.setDate(realization_date.getDate()+3)
-                                const address = `${street} ${postalCode} ${city}`
-                                const body = {
-                                    name:product.name,
-                                    customer,
-                                    address,
-                                    price:product.price,
-                                    quantity:productAmount,
-                                    order_date,
-                                    realization_date}
-                                UseFetch("/api/routes/order","POST",body)
-                            }}>
-                                ZAMÓW</button></div>
+                        <button className={styles.order_options_button} onClick={()=>{
+                            const order_date = new Date
+                            let realization_date = new Date
+                            realization_date.setDate(realization_date.getDate()+3)
+                            const address = `${street} ${postalCode} ${city}`
+                            const body = {
+                                name:product.name,
+                                customer,
+                                address,
+                                price:product.price,
+                                quantity:productAmount,
+                                order_date,
+                                realization_date}
+                            UseFetch("/api/routes/order","POST",body)
+                        }}>ZAMÓW</button>
+                        </div>
                     </div>
                 </div>
             </div>

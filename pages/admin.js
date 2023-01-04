@@ -52,19 +52,19 @@ const PanelAdmina = ({ booking, news, order}) => {
                     <div className={infoStyles.info__itemContainer}>
                         <div className={infoStyles.info__item}>
                             <p>Pieniądze ze sprzedaży</p>
-                            <div>111111</div>
+                            <div>604tys zł</div>
                         </div>
                         <div className={infoStyles.info__item}>
                             <p>Ilość sprzedanych sztuk</p>
-                            <div>111111</div>
+                            <div>15214</div>
                         </div>
                         <div className={infoStyles.info__item}>
-                            <p>Średnia ocen usługi</p>
-                            <div>111111</div>
+                            <p>Średnia ocen usługi (tydzień)</p>
+                            <div>4.5</div>
                         </div>
                         <div className={infoStyles.info__item}>
-                            <p>Średnia ocen usługi</p>
-                            <div>111111</div>
+                            <p>Średnia ocen usługi (rok)</p>
+                            <div>4.84</div>
                         </div>
                     </div>
                 </section>

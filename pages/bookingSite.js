@@ -58,11 +58,12 @@ const serviceList = [
     
 ]
 
-const Rezerwacja = ({ booking }) => {
+const Rezerwacja = () => {
     // // Deklaracja zmiennych w zależności od stanów
     const [service, setService] = useState(null)
     const [client, setClient] = useState("")
     const [date, setDate] = useState("")
+    
     const [error, setError] = useState(false)
     const [booked, setBooked] = useState(false)
     const [dateNotAvailable, setDateNotAvailable] = useState(false)
@@ -154,21 +155,5 @@ const Rezerwacja = ({ booking }) => {
 }
 export default Rezerwacja;
 
-export const getServerSideProps = async () => {
-    try {
-        await connectMongo()
-        const booking = await bookingModel.find()
-        return {
-            props: {
-                booking: JSON.parse(JSON.stringify(booking)),
-            },
-        };
-    } catch(error) {
-        console.log(error)
-        return {
-            notFound: true,
-        }
-    }
-}
 
 

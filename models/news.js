@@ -1,3 +1,4 @@
+//models > news.js
 import { Schema, model, models } from "mongoose";
 
 const newsSchema = new Schema ({
