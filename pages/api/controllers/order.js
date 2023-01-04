@@ -22,9 +22,9 @@ export const orderAdd = async (req,res) => {
 //USUWANIE
 export const orderDelete = async (req,res) => {
     try {
-        const { id } = req.body;
+        const id = req.body;
         await connectMongo()
-        await orderModel.deleteOne(id)
+        await orderModel.deleteOne({ _id: id})
     } catch(error) {
         console.log(error)
         res.json(error)

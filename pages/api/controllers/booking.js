@@ -20,12 +20,11 @@ export const bookAdd = async (req,res) => {
 //USUWANIE REZERWACJI
 export const bookDelete = async (req,res) => {
     try {
-        const { id } = req.body;
+        const id = req.body;
         await connectMongo()
-        await bookingModel.deleteOne(id)
+        await bookingModel.deleteOne({ _id: id })
     } catch(error) {
-        console.log(error)
-        res.json(error)
+        console.error(error)
     }
 }
 //EDYCJA REZERWACJI

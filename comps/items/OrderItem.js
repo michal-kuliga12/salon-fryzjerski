@@ -3,6 +3,7 @@ import UseFetch from "../../lib/useFetch"
 
 const OrderItem = ( {item, index}) => {
     const deleteItem = async (item) => {
+        console.log(item)
         const res = await fetch('./api/routes/order',{
             method: "DELETE",
             headers: { 
@@ -10,9 +11,9 @@ const OrderItem = ( {item, index}) => {
                 "Accept": "application/json"
             },
             body: JSON.stringify({ _id: item._id }),
-        }).then((res)=> {
-            console.log(res)
         })
+        const json = await res.json();
+        console.log(json)
     }
     let orderDate = new Date(item.order_date)
     let realizationDate = new Date(item.realization_date)

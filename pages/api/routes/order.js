@@ -16,8 +16,8 @@
         //      res.status(200).json({ message: "Wykorzystano metode PUT"})
         //      break;
          case "DELETE":
-             orderDelete(req,res)
-             res.status(200).send({ message: "Wykorzystano metode DELETE"})
-             break;
+            orderDelete(req,res)
+            res.status(200).send({ message: "Wykorzystano metode DELETE"})
+            break;
      }
  }
